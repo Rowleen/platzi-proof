@@ -7,6 +7,7 @@ import { renderToString } from "react-dom/server";
 import { renderRoutes } from "react-router-config";
 import { StaticRouter } from "react-router-dom";
 import { serverRoutes } from "../frontend/routes/serverRoutes";
+import getManifest from "./getManifest";
 
 dotenv.config();
 
@@ -32,24 +33,33 @@ if (ENV === "development") {
 }
 
 if (ENV === "production") {
+  app.use((request, response, next) => {
+    if (!request.hashManifest) {
+      request.hashManifest = getManifest();
+    }
+    next();
+  });
   app.use(express.static(`${__dirname}/public`));
   app.use(helmet());
   app.use(helmet.permittedCrossDomainPolicies());
   app.disable("x-powered-by");
 }
 
-const setResponse = (html) => {
+const setResponse = (html, manifest) => {
+  const mainStyles = manifest ? manifest["main.css"] : "assets/main.css";
+  const mainBuild = manifest ? manifest["main.js"] : "assets/main.js";
+
   return `
       <!DOCTYPE html>
       <html lang="es">
         <head>
           <meta charset="utf-8" />
-          <link href="assets/app.css" rel="stylesheet" type="text/css">
+          <link href="${mainStyles}" rel="stylesheet" type="text/css">
           <title>React App</title>
         </head>
         <body>
           <div id="root">${html}</div>
-          <script src="assets/app.js" type="text/javascript"></script>
+          <script src="${mainBuild}" type="text/javascript"></script>
         </body>
       </html>
     `;
@@ -62,7 +72,7 @@ const renderApp = (request, response) => {
     </StaticRouter>
   );
 
-  response.send(setResponse(html));
+  response.send(setResponse(html, request.hashManifest));
 };
 
 app.get("*", renderApp);
