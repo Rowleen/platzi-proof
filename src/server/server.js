@@ -48,6 +48,7 @@ if (ENV === "production") {
 const setResponse = (html, manifest) => {
   const mainStyles = manifest ? manifest["main.css"] : "assets/main.css";
   const mainBuild = manifest ? manifest["main.js"] : "assets/main.js";
+  const vendorBuild = manifest ? manifest["vendors.js"] : "assets/vendor.js";
 
   return `
       <!DOCTYPE html>
@@ -60,6 +61,7 @@ const setResponse = (html, manifest) => {
         <body>
           <div id="root">${html}</div>
           <script src="${mainBuild}" type="text/javascript"></script>
+          <script src="${vendorBuild}" type="text/javascript"></script>
         </body>
       </html>
     `;
