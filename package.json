@@ -45,6 +45,7 @@
     "@babel/preset-react": "^7.10.4",
     "@babel/register": "^7.11.5",
     "babel-loader": "^8.1.0",
+    "compression-webpack-plugin": "^6.0.3",
     "css-loader": "^4.3.0",
     "eslint": "^7.10.0",
     "eslint-config-prettier": "^6.12.0",
@@ -62,6 +63,7 @@
     "path": "^0.12.7",
     "prettier": "^2.1.2",
     "react-hot-loader": "^4.13.0",
+    "terser-webpack-plugin": "^4.2.3",
     "webpack-cli": "^3.3.12",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-hot-middleware": "^2.25.0"
