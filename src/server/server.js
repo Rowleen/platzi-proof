@@ -10,7 +10,8 @@ import { serverRoutes } from "../frontend/routes/serverRoutes";
 
 dotenv.config();
 
-const { ENV, PORT } = process.env;
+const { ENV, PORT_DEV, PORT_PRO } = process.env;
+const port = ENV === "development" ? PORT_DEV : PORT_PRO;
 const app = express();
 
 if (ENV === "development") {
@@ -22,13 +23,15 @@ if (ENV === "development") {
   const compiler = webpack(webpackConfig);
 
   const webpackServerConfig = {
-    port: ENV,
+    port: port,
     hot: true,
   };
 
   app.use(webpackDevMiddleware(compiler, webpackServerConfig));
   app.use(webpackHotMiddleware(compiler));
-} else {
+}
+
+if (ENV === "production") {
   app.use(express.static(`${__dirname}/public`));
   app.use(helmet());
   app.use(helmet.permittedCrossDomainPolicies());
@@ -64,10 +67,10 @@ const renderApp = (request, response) => {
 
 app.get("*", renderApp);
 
-app.listen(PORT, (error) => {
+app.listen(port, (error) => {
   if (error) {
     console.log("Error: ", "can not run the server.");
   } else {
-    console.log("Server running on port 3000");
+    console.log(`Server running on port ${port} - ${ENV}`);
   }
 });
