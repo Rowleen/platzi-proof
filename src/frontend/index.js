@@ -8,7 +8,7 @@ import "./index.css";
 
 const history = createBrowserHistory();
 
-ReactDOM.render(
+ReactDOM.hydrate(
   <Router history={history}>
     <ClientRoutes />
   </Router>,
