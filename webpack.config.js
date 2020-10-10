@@ -25,6 +25,11 @@ module.exports = {
     publicPath: "/",
   },
   resolve: {
+    alias: {
+      styles: path.resolve(__dirname, "./src/frontend/assets"),
+      components: path.resolve(__dirname, "./src/frontend/components"),
+      api: path.resolve(__dirname, "./src/api"),
+    },
     extensions: [".js", ".jsx"],
   },
   optimization: {

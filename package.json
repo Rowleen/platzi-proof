@@ -51,6 +51,7 @@
     "@babel/preset-react": "^7.10.4",
     "@babel/register": "^7.11.5",
     "babel-loader": "^8.1.0",
+    "babel-plugin-webpack-alias": "^2.1.2",
     "compression-webpack-plugin": "^6.0.3",
     "css-loader": "^4.3.0",
     "eslint": "^7.10.0",
