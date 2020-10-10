@@ -6,16 +6,18 @@ import React from "react";
 import { renderToString } from "react-dom/server";
 import { renderRoutes } from "react-router-config";
 import { StaticRouter } from "react-router-dom";
-import { serverRoutes } from "../frontend/routes/serverRoutes";
+import serverRoutes from "../frontend/routes/serverRoutes";
 import getManifest from "./getManifest";
 
 dotenv.config();
 
 const { ENV, PORT_DEV, PORT_PRO } = process.env;
 const port = ENV === "development" ? PORT_DEV : PORT_PRO;
+
 const app = express();
 
 if (ENV === "development") {
+  console.log("#########################################");
   console.log("Enviroment: ", "Working on develop");
 
   const webpackConfig = require("../../webpack.config");
@@ -84,5 +86,6 @@ app.listen(port, (error) => {
     console.log("Error: ", "can not run the server.");
   } else {
     console.log(`Server running on port ${port} - ${ENV}`);
+    console.log("#########################################");
   }
 });
