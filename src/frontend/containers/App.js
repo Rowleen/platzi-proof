@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
-import { getUsers } from "../api/users";
-
-import "./App.css";
+import { getUsers } from "../../api/users";
 
 function App() {
   useEffect(() => {

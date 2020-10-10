@@ -4,7 +4,7 @@ import { createBrowserHistory } from "history";
 import { Router } from "react-router";
 import ClientRoutes from "./routes/ClientRoutes";
 
-import "./index.css";
+import "./assets/app.styl";
 
 const history = createBrowserHistory();
 
