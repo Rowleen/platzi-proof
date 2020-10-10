@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { getUsers } from "../api/users";
+
 import "./App.css";
 
 function App() {
+  useEffect(() => {
+    getUsers()
+      .then((response) => console.log(response.data))
+      .catch((error) => console.log(error));
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
