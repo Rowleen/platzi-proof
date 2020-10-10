@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
-import { getUsers } from "../../api/users";
+import { getUsers } from "api/users";
+
+import { Header } from "components";
 
 function App() {
   useEffect(() => {
@@ -10,6 +12,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <header className="App-header">
         <p>Awesome APP</p>
       </header>
