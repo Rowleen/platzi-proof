@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "node src/server/index",
     "start-dev": "nodemon src/server/index",
     "build": "webpack-cli --config webpack.config.js",
     "eject": "react-scripts eject"

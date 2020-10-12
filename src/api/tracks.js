@@ -13,4 +13,4 @@ const options = {
 
 // GET all users by pages
 export const searchTrack = (songName) =>
-  instance.get(`track.search?q_track=${songName}`, options);
+  instance.get(`track.search?q_track=${songName}&page_size=12`, options);

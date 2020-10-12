@@ -7,6 +7,7 @@
 }
 
 body {
+  overflow-x: hidden
   width: 100vw
   height: 100vh
   font-size: 1rem
@@ -23,7 +24,8 @@ code {
 }
 
 .section-title
-  color: $dark-grey
+  color: text-color
+  margin-bottom: 2rem
 
 .app
   width: 100vw
@@ -35,13 +37,14 @@ code {
   .content 
     width: 100%
     max-width: 1200px
-    padding: 2rem 1rem;;
+    padding: 2rem 0
 
     .form
       width: 100%
       height: auto
       display: flex;
       justify-content: center
+      margin-bottom: 2rem
 
       .input
         width: 30rem
@@ -50,26 +53,39 @@ code {
         padding: .5rem .8rem
         border-top-left-radius: border-radius-elements
         border-bottom-left-radius: border-radius-elements
-        background-color: white;
-        border-color: $grey;
+        background-color: background-color-accent;
+        border-color: background-color-accent
         font-size: 1.5rem
+        color: white
+        border-right: unset
 
         &:focus
           outline: unset
           border-color: primary-color
 
+          +.button
+            outline: unset
+            border-color: primary-color
+
       .button
-        width: 3rem
+        cursor: pointer
+        width: 4rem
         display: flex
         align-items: center
         justify-content: center
-        background-color: primary-color
-        border: 0
+        background-color: background-color-accent
+        border: solid 1px
+        border-left: unset
+        border-color: background-color-accent
         border-top-right-radius: border-radius-elements
         border-bottom-right-radius: border-radius-elements
+
+        &:hover 
+          background-color: primary-color-hover
+
+        &:focus
+          outline: unset
 
         .icon
           font-size: 1.5rem
           color: white
-  
-
