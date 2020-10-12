@@ -32,12 +32,12 @@ if (ENV === "development") {
   const webpackHotMiddleware = require("webpack-hot-middleware");
   const compiler = webpack(webpackConfig);
 
-  const webpackServerConfig = {
-    port: port,
+  const serverConfig = {
+    port: PORT_DEV,
     hot: true,
   };
 
-  app.use(webpackDevMiddleware(compiler, webpackServerConfig));
+  app.use(webpackDevMiddleware(compiler, serverConfig));
   app.use(webpackHotMiddleware(compiler));
 }
 

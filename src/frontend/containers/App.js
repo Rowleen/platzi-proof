@@ -8,12 +8,13 @@ import "styles/app.styl";
 
 const App = () => {
   const [search, setSearch] = useState("");
+  const [sort, setSort] = useState("desc");
   const [trackList, setTrackList] = useState([]);
 
   const handleSearch = (event) => {
     event.preventDefault();
 
-    searchTrack(search)
+    searchTrack(search, sort)
       .then(
         (response) =>
           response.status === 200 &&
@@ -26,7 +27,7 @@ const App = () => {
     const { value } = event.target;
     setSearch(value);
   };
-
+  console.log(setSort);
   return (
     <div className="app">
       <div className="content">

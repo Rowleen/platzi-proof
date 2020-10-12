@@ -17,13 +17,13 @@ if (isDev) {
 }
 
 module.exports = {
-  devtool: !isDev ? "hidden-source-map" : "eval-source-map",
+  devtool: !isDev ? "hidden-source-map" : "eval",
   entry,
   mode: process.env.ENV,
   output: {
     path: path.resolve(__dirname, "src/server/public"),
     filename: isDev ? "assets/main.js" : "assets/main-[hash].js",
-    publicPath: "/",
+    publicPath: "/assets",
   },
   resolve: {
     alias: {
