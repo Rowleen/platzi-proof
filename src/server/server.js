@@ -19,7 +19,7 @@ const port = ENV === "development" ? PORT_DEV : PORT_PRO;
 const app = express();
 app.use(
   cors({
-    origin: ["https://api.musixmatch.com"],
+    origin: ["*"],
   })
 );
 
@@ -49,7 +49,6 @@ if (ENV === "production") {
     next();
   });
   app.use(express.static(`${__dirname}/public`));
-  app.use(helmet());
   app.use(helmet.permittedCrossDomainPolicies());
   app.disable("x-powered-by");
 }
