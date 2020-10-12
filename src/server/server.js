@@ -90,7 +90,7 @@ const renderApp = (request, response) => {
 
 app.get("*", renderApp);
 
-app.listen(port, (error) => {
+app.listen(process.env.PORT || port, (error) => {
   if (error) {
     console.log("Error: ", "can not run the server.");
   } else {
