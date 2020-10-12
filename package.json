@@ -46,15 +46,15 @@
     "stylus": "^0.54.8",
     "stylus-loader": "^4.1.1",
     "webpack": "^4.44.2",
-    "webpack-manifest-plugin": "^2.2.0"
-  },
-  "devDependencies": {
+    "webpack-manifest-plugin": "^2.2.0",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "@babel/register": "^7.11.5",
     "babel-loader": "^8.1.0",
     "babel-plugin-webpack-alias": "^2.1.2",
-    "compression-webpack-plugin": "^6.0.3",
+    "compression-webpack-plugin": "^6.0.3"
+  },
+  "devDependencies": {
     "css-loader": "^4.3.0",
     "eslint": "^7.10.0",
     "eslint-config-prettier": "^6.12.0",
