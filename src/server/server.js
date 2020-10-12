@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import dotenv from "dotenv";
 import webpack from "webpack";
 import helmet from "helmet";
@@ -16,6 +17,11 @@ const { ENV, PORT_DEV, PORT_PRO } = process.env;
 const port = ENV === "development" ? PORT_DEV : PORT_PRO;
 
 const app = express();
+app.use(
+  cors({
+    origin: ["https://api.musixmatch.com"],
+  })
+);
 
 if (ENV === "development") {
   console.log("#########################################");
