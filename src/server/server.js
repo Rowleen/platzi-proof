@@ -6,6 +6,7 @@ import React from "react";
 import { renderToString } from "react-dom/server";
 import { renderRoutes } from "react-router-config";
 import { StaticRouter } from "react-router-dom";
+import { Layout } from "components";
 import serverRoutes from "../frontend/routes/serverRoutes";
 import getManifest from "./getManifest";
 
@@ -71,9 +72,11 @@ const setResponse = (html, manifest) => {
 
 const renderApp = (request, response) => {
   const html = renderToString(
-    <StaticRouter location={request.url} context={{}}>
-      {renderRoutes(serverRoutes)}
-    </StaticRouter>
+    <Layout>
+      <StaticRouter location={request.url} context={{}}>
+        {renderRoutes(serverRoutes)}
+      </StaticRouter>
+    </Layout>
   );
 
   response.send(setResponse(html, request.hashManifest));

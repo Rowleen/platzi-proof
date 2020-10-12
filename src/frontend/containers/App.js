@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { getUsers } from "api/users";
 
-import { Header } from "components";
+import "styles/app.styl";
 
 function App() {
   useEffect(() => {
@@ -10,14 +10,7 @@ function App() {
       .catch((error) => console.log(error));
   }, []);
 
-  return (
-    <div className="App">
-      <Header />
-      <header className="App-header">
-        <p>Awesome APP</p>
-      </header>
-    </div>
-  );
+  return <div className="app"></div>;
 }
 
 export default App;
