@@ -47,28 +47,25 @@
       color: white
       margin-bottom: .5rem
 
-    .genres
-      display: flex
-      flex-flow: row wrap
+for index in (1..12)
+  .track-wrapper
+    &:nth-child({index})
+      animation-delay: index * (1s / 18);
 
-      .genre
-        cursor: pointer
-        border-radius: border-radius-elements
-        padding: .1rem .8rem
-        margin-bottom: .3rem
-        margin-right: .3rem
-        text-align: center
-        color: white
-
-        &:nth-child(1n+0)
-          background-color: third-color
-
-        &:nth-child(2n+0)
-          background-color: secondary-color
-
-        &:nth-child(3n+0)
-          background-color: primary-color
-        
-
-
+@keyframes pulse {
+  0% {
+    background: text-color;
+    transform: scale(1);
+  }
+  
+  25% {
+    background: darken(text-color, 10%);
+    transform: scale(1.015);
+  }
+  
+  50% {
+    background: text-color;
+    transform: scale(1);
+  }
+}
     

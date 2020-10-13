@@ -105,6 +105,7 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
+    hot: true,
   },
   plugins: [
     isDev ? new webpack.HotModuleReplacementPlugin() : () => {},

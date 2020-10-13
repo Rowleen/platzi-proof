@@ -25,7 +25,7 @@ const App = () => {
     const { value } = event.target;
     setSearch(value);
   };
-  console.log(setSort);
+
   return (
     <div className="app">
       <div className="content">
@@ -43,7 +43,7 @@ const App = () => {
           </button>
         </form>
 
-        <TrackList tracks={trackList} />
+        <TrackList tracks={trackList} setSort={setSort} />
       </div>
     </div>
   );
