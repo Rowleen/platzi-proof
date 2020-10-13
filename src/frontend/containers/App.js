@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { searchTrack } from "api/tracks";
+import { searchTrack } from "api/client";
 import { FaSearch } from "react-icons/fa";
 
 import { TrackList } from "components";
@@ -16,9 +16,7 @@ const App = () => {
 
     searchTrack(search, sort)
       .then(
-        (response) =>
-          response.status === 200 &&
-          setTrackList(response.data.message.body.track_list)
+        (response) => response.status === 200 && setTrackList(response.data)
       )
       .catch((error) => console.log(error));
   };

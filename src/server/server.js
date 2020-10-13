@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import webpack from "webpack";
 import helmet from "helmet";
 import React from "react";
+import { searchTrack } from "api/server";
 import { renderToString } from "react-dom/server";
 import { renderRoutes } from "react-router-config";
 import { StaticRouter } from "react-router-dom";
@@ -86,6 +87,18 @@ const renderApp = (request, response) => {
 
   response.send(setResponse(html, request.hashManifest));
 };
+
+app.get("/searchTracks/:search/:sort", (req, res) => {
+  const { search, sort } = req.params;
+
+  searchTrack(search, sort)
+    .then(
+      (response) =>
+        response.status === 200 &&
+        res.send(response.data.message.body.track_list)
+    )
+    .catch((error) => console.log(error));
+});
 
 app.get("*", renderApp);
 
