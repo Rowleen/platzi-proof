@@ -14,6 +14,7 @@ const App = () => {
 
   const handleSearch = (event) => {
     setIsLoading(true);
+    setTrackList([]);
     event.preventDefault();
 
     searchTrack(search, sort)
