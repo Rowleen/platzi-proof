@@ -11,7 +11,7 @@ const Track = ({ artist, updateFilter, name, genres }) => {
     <article className="track-wrapper">
       <div className="cover">
         <FaRegPlayCircle className="icon-play" />
-        <h3 className="track-title">{name}</h3>
+        <h3 className="track-title">{name} kk</h3>
       </div>
 
       <div className="track-info">
