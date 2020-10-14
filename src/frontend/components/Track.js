@@ -16,7 +16,7 @@ const Track = ({ artist, updateFilter, name, genres }) => {
 
       <div className="track-info">
         <p className="artist">{artist}</p>
-        <div className="genres">
+        <div className="genres-track">
           {genres.map((genre, index) => (
             <Pill
               key={index.toString()}
