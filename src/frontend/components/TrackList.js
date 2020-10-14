@@ -21,6 +21,7 @@ const TrackList = ({ tracks }) => {
   }, [genreFilter]);
 
   useEffect(() => {
+    setGenreFilter(0);
     // Getting all genres from the tracks
     const newGenres = tracks
       .map((song) => {
