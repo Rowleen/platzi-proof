@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import classNames from "classnames";
 import PropTypes from "prop-types";
+import { FaTimes } from "react-icons/fa";
 
 import { Track, Pill } from "components";
 
@@ -74,6 +76,11 @@ const TrackList = ({ tracks }) => {
     ));
   }
 
+  const pillClear = classNames({
+    "pill-clear": true,
+    show: genres.length > 0 && genreFilter !== 0,
+  });
+
   return (
     <>
       <div className="genres-wrapper">
@@ -86,6 +93,9 @@ const TrackList = ({ tracks }) => {
               handleOnClick={setGenreFilter}
             />
           ))}
+          <span className={pillClear} onClick={() => setGenreFilter(0)}>
+            Clear <FaTimes className="icon-times" />
+          </span>
         </div>
       </div>
 
