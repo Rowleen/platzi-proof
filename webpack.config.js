@@ -23,7 +23,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "src/server/public"),
     filename: isDev ? "assets/main.js" : "assets/main-[hash].js",
-    publicPath: "/assets",
+    publicPath: "/",
   },
   resolve: {
     alias: {
@@ -69,17 +69,7 @@ module.exports = {
       },
       {
         test: /\.styl$/,
-        use: [
-          {
-            loader: "style-loader",
-          },
-          {
-            loader: "css-loader",
-          },
-          {
-            loader: "stylus-loader",
-          },
-        ],
+        use: ["style-loader", "css-loader", "stylus-loader"],
       },
       {
         test: /\.(s*)css$/,
@@ -105,7 +95,6 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    hot: true,
   },
   plugins: [
     isDev ? new webpack.HotModuleReplacementPlugin() : () => {},
