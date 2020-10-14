@@ -9,7 +9,14 @@
   display: flex
   justify-content: center
   align-items: center
-  background-color: rgba(0, 0, 0, .5)
+  background-color: rgba(0, 0, 0, .7)
+  opacity: 0
+  z-index: -1
+  transition: all .3s ease
+
+  &.show
+    opacity: 1
+    z-index: 1
 
   .spinner-container
     height: 20rem

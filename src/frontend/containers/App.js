@@ -8,17 +8,23 @@ import "styles/app.styl";
 
 const App = () => {
   const [search, setSearch] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [sort, setSort] = useState("desc");
   const [trackList, setTrackList] = useState([]);
 
   const handleSearch = (event) => {
+    setIsLoading(true);
     event.preventDefault();
 
     searchTrack(search, sort)
       .then(
         (response) => response.status === 200 && setTrackList(response.data)
       )
-      .catch((error) => console.log(error));
+      .then(() => setIsLoading(false))
+      .catch((error) => {
+        console.log(error);
+        setIsLoading(false);
+      });
   };
 
   const handleOnChange = (event) => {
@@ -28,7 +34,7 @@ const App = () => {
 
   return (
     <div className="app">
-      <Spinner isLoading={true} />
+      <Spinner isLoading={isLoading} />
       <div className="content">
         <form className="form" onSubmit={(event) => handleSearch(event)}>
           <input
