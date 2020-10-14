@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const autoprefixer = require("autoprefixer");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CompressionWebpackPlugin = require("compression-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
@@ -15,8 +16,6 @@ if (isDev) {
     "webpack-hot-middleware/client?path=/__webpack_hmr&timeout=2000&reload=true"
   );
 }
-
-console.log(entry);
 
 module.exports = {
   devtool: !isDev ? "hidden-source-map" : "eval-cheap-source-map",
@@ -76,6 +75,12 @@ module.exports = {
       {
         test: /\.(s*)css$/,
         use: [
+          {
+            loader: "postcss-loader",
+            options: {
+              plugins: () => [autoprefixer()],
+            },
+          },
           {
             loader: MiniCssExtractPlugin.loader,
           },
