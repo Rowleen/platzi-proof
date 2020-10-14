@@ -11,44 +11,57 @@ const TrackList = ({ tracks }) => {
   const [genres, setGenres] = useState([]);
 
   useEffect(() => {
-    const list = tracks
-      .map((track) =>
-        track.track.primary_genres.music_genre_list.filter((genre) => {
-          if (
-            genre.music_genre &&
-            genre.music_genre.music_genre_id === genreFilter
-          ) {
-            return track;
-          }
-        })
+    const list = tracks.filter((track) =>
+      track.track.primary_genres.music_genre_list.some(
+        (genre) => genre.music_genre?.music_genre_id === genreFilter
       )
-      .filter((array) => array.length > 0);
-
-    console.log(list);
-    console.log(filteredList);
+    );
 
     setFilteredList(list);
   }, [genreFilter]);
 
   useEffect(() => {
+    // Getting all genres from the tracks
     const newGenres = tracks
       .map((song) => {
         const genreList = song.track.primary_genres.music_genre_list;
 
         if (genreList.length > 0) {
-          return genreList.map((genre) => genre.music_genre.music_genre_name);
+          return genreList.map((genre) => {
+            return {
+              music_genre_name: genre.music_genre.music_genre_name,
+              music_genre_id: genre.music_genre.music_genre_id,
+            };
+          });
         }
       })
       .filter((genre) => genre !== undefined)
-      .flat()
-      .filter((v, i, a) => a.indexOf(v) === i);
+      .flat();
 
-    setGenres(newGenres);
+    // Getting unique genres from genres taken of all tracks
+    const distinctGenres = Array.from(
+      new Set(newGenres.map((genre) => genre.music_genre_id))
+    ).map((id) => {
+      return {
+        music_genre_id: id,
+        music_genre_name: newGenres.find((genre) => genre.music_genre_id === id)
+          .music_genre_name,
+      };
+    });
+
+    setGenres(distinctGenres);
   }, [tracks]);
+
+  let tracksToList = [];
+  if (genreFilter === 0) {
+    tracksToList = tracks;
+  } else {
+    tracksToList = filteredList;
+  }
 
   let trackList = [];
   if (tracks.length > 0) {
-    trackList = tracks.map((result, index) => (
+    trackList = tracksToList.map((result, index) => (
       <Track
         key={index.toString()}
         artist={result.track.artist_name}
@@ -66,7 +79,11 @@ const TrackList = ({ tracks }) => {
         <h2 className="section-title">Songs list</h2>
         <div className="genres">
           {genres.map((genre, index) => (
-            <Pill key={`genre-${index}`} text={genre} />
+            <Pill
+              key={`genre-${index}`}
+              genre={genre}
+              handleOnClick={setGenreFilter}
+            />
           ))}
         </div>
       </div>

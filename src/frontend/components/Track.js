@@ -23,7 +23,7 @@ const Track = ({ artist, updateFilter, name, genres }) => {
               className="genre"
               handleOnClick={updateFilter}
               id={genre.music_genre.music_genre_id}
-              text={genre.music_genre.music_genre_name}
+              genre={genre.music_genre}
             />
           ))}
         </div>
