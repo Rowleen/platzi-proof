@@ -16,6 +16,8 @@ if (isDev) {
   );
 }
 
+console.log(entry);
+
 module.exports = {
   devtool: !isDev ? "hidden-source-map" : "eval-cheap-source-map",
   entry,

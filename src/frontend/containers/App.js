@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { searchTrack } from "api/client";
 import { FaSearch } from "react-icons/fa";
 
-import { TrackList } from "components";
+import { Spinner, TrackList } from "components";
 
 import "styles/app.styl";
 
@@ -28,6 +28,7 @@ const App = () => {
 
   return (
     <div className="app">
+      <Spinner isLoading={true} />
       <div className="content">
         <form className="form" onSubmit={(event) => handleSearch(event)}>
           <input

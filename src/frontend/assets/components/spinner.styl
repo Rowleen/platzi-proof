@@ -1,0 +1,79 @@
+@import "styles/variables"
+
+.spinner-wrapper
+  position: fixed
+  top: 0
+  left: 0
+  width: 100vw
+  height 100vh
+  display: flex
+  justify-content: center
+  align-items: center
+  background-color: rgba(0, 0, 0, .5)
+
+  .spinner-container
+    height: 20rem
+    text-align: center
+
+    .spin
+      border: 3px solid primary-color;
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+      border-radius: 50%;
+      border-left-color: transparent;
+      border-right-color: transparent;
+      animation: rotate 2s cubic-bezier(0.26, 1.36, 0.74, -0.29) infinite;
+      
+    #loader2
+      border: 3px solid third-color;
+      width: 220px;
+      height: 220px;
+      position: relative;
+      top: -216px;
+      border-left-color: transparent;
+      border-right-color: transparent;
+      animation: rotate2 2s cubic-bezier(0.26, 1.36, 0.74, -0.29) infinite;
+    
+    #loader3 
+      border: 3px solid primary-color-hover;
+      width: 240px;
+      height: 240px;
+      position: relative;
+      top: -452px;
+      border-left-color: transparent;
+      border-right-color: transparent;
+      animation: rotate 2s cubic-bezier(0.26, 1.36, 0.74, -0.29) infinite;
+
+    #loader4
+      border: 3px solid third-color-hover;
+      width: 260px;
+      height: 260px;
+      position: relative;
+      top: -708px;
+      border-left-color: transparent;
+      border-right-color: transparent;
+      animation: rotate2 2s cubic-bezier(0.26, 1.36, 0.74, -0.29) infinite;
+
+    .info 
+      color: white;
+      font-size: 15px;
+      position: relative;
+      top: -857px;  
+
+@keyframes rotate 
+  0% 
+    transform: rotateZ(-360deg)
+  
+  100% 
+    transform: rotateZ(0deg)
+  
+
+@keyframes rotate2 
+  0% 
+    transform: rotateZ(360deg)
+  
+  100% 
+    transform: rotateZ(0deg)
+        
+      

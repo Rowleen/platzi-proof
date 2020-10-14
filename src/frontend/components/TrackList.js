@@ -76,7 +76,7 @@ const TrackList = ({ tracks }) => {
   return (
     <>
       <div className="genres-wrapper">
-        <h2 className="section-title">Songs list</h2>
+        <h2 className="section-title">Lyrics list</h2>
         <div className="genres">
           {genres.map((genre, index) => (
             <Pill
