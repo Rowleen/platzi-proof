@@ -46,6 +46,12 @@ const App = () => {
             value={search}
           />
 
+          <select className="select">
+            <option value="">Sort songs</option>
+            <option value="desc">Descendant</option>
+            <option value="asc">Ascendant</option>
+          </select>
+
           <button type="submit" className="button search">
             <FaSearch className="icon" />
           </button>
