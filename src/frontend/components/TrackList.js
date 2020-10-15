@@ -7,7 +7,7 @@ import { Track, Pill } from "components";
 
 import "styles/components/trackList.styl";
 
-const TrackList = ({ tracks }) => {
+const TrackList = ({ handleOnGetLyric, tracks }) => {
   const [genreFilter, setGenreFilter] = useState(0);
   const [sortByRating, setSortByRating] = useState(false);
   const [filteredList, setFilteredList] = useState([]);
@@ -83,13 +83,15 @@ const TrackList = ({ tracks }) => {
   if (tracks.length > 0) {
     trackList = tracksToList.map((result, index) => (
       <Track
-        key={index.toString()}
-        artist={result.track.artist_name}
-        name={result.track.track_name}
         album={result.track.album_name}
+        artist={result.track.artist_name}
         genres={result.track.primary_genres.music_genre_list}
-        updateFilter={setGenreFilter}
+        getLyric={handleOnGetLyric}
+        id={result.track.track_id}
+        key={index.toString()}
+        name={result.track.track_name}
         rating={result.track.track_rating}
+        updateFilter={setGenreFilter}
       />
     ));
   }
@@ -138,6 +140,7 @@ const TrackList = ({ tracks }) => {
 };
 
 TrackList.propTypes = {
+  handleOnGetLyric: PropTypes.func,
   tracks: PropTypes.array,
 };
 

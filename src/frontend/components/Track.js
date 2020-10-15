@@ -6,10 +6,18 @@ import { Pill } from "components";
 
 import "styles/components/track.styl";
 
-const Track = ({ artist, updateFilter, name, genres, rating }) => {
+const Track = ({
+  artist,
+  genres,
+  getLyric,
+  id,
+  name,
+  rating,
+  updateFilter,
+}) => {
   return (
     <article className="track-wrapper">
-      <div className="cover">
+      <div className="cover" onClick={() => getLyric(id)}>
         <FaMusic className="icon-lyric" />
         <h3 className="track-title">{name}</h3>
         <div className="rating">
@@ -23,11 +31,11 @@ const Track = ({ artist, updateFilter, name, genres, rating }) => {
         <div className="genres-track">
           {genres.map((genre, index) => (
             <Pill
-              key={index.toString()}
               className="genre"
+              genre={genre.music_genre}
               handleOnClick={updateFilter}
               id={genre.music_genre.music_genre_id}
-              genre={genre.music_genre}
+              key={index.toString()}
             />
           ))}
         </div>
@@ -38,11 +46,13 @@ const Track = ({ artist, updateFilter, name, genres, rating }) => {
 
 Track.propTypes = {
   artist: PropTypes.string,
-  name: PropTypes.string,
-  genres: PropTypes.array,
   filter: PropTypes.func,
-  updateFilter: PropTypes.func,
+  genres: PropTypes.array,
+  getLyric: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string,
   rating: PropTypes.number,
+  updateFilter: PropTypes.func,
 };
 
 export default Track;

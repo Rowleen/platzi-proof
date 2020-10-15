@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { searchTrack } from "api/client";
+import { getLyric, searchTrack } from "api/client";
 import { FaSearch } from "react-icons/fa";
 
 import { Spinner, TrackList } from "components";
@@ -11,6 +11,7 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [sort, setSort] = useState("desc");
   const [trackList, setTrackList] = useState([]);
+  const [lyric, setLyric] = useState({});
 
   const handleSearch = (event) => {
     setIsLoading(true);
@@ -28,6 +29,16 @@ const App = () => {
       });
   };
 
+  const handleOnGetLyric = (id) => {
+    getLyric(id)
+      .then((response) => response.status === 200 && setLyric(response.data))
+      .then(() => setIsLoading(false))
+      .catch((error) => {
+        console.log(error);
+        setIsLoading(false);
+      });
+  };
+
   const handleOnChange = (event) => {
     const { value } = event.target;
     setSearch(value);
@@ -37,7 +48,7 @@ const App = () => {
     const { value } = event.target;
     setSort(value);
   };
-
+  console.log(lyric);
   return (
     <div className="app">
       <Spinner isLoading={isLoading} />
@@ -62,7 +73,7 @@ const App = () => {
           </button>
         </form>
 
-        <TrackList tracks={trackList} />
+        <TrackList tracks={trackList} handleOnGetLyric={handleOnGetLyric} />
       </div>
     </div>
   );

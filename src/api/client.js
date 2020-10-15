@@ -6,6 +6,7 @@ const instance = axios.create({
   baseURL: urlServer,
 });
 
-// GET all users by pages
 export const searchTrack = (songName, sort) =>
-  instance.get(`/searchTracks/${songName}/${sort}`);
+  instance.get(`/search-tracks/${songName}/${sort}`);
+
+export const getLyric = (id) => instance.get(`/track-liryc/id/${id}`);
