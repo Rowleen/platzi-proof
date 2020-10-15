@@ -18,7 +18,7 @@ if (isDev) {
 }
 
 module.exports = {
-  devtool: !isDev ? "hidden-source-map" : "inline-source-map",
+  devtool: !isDev ? "hidden-source-map" : "eval-cheap-module-source-map",
   entry,
   mode: process.env.ENV,
   output: {

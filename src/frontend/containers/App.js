@@ -33,6 +33,11 @@ const App = () => {
     setSearch(value);
   };
 
+  const handleSetSort = (event) => {
+    const { value } = event.target;
+    setSort(value);
+  };
+
   return (
     <div className="app">
       <Spinner isLoading={isLoading} />
@@ -46,10 +51,10 @@ const App = () => {
             value={search}
           />
 
-          <select className="select">
-            <option value="">Sort songs</option>
-            <option value="desc">Descendant</option>
-            <option value="asc">Ascendant</option>
+          <select className="select" onChange={(event) => handleSetSort(event)}>
+            <option value="desc">Sort songs</option>
+            <option value="desc">Popular</option>
+            <option value="asc">Unpopular</option>
           </select>
 
           <button type="submit" className="button search">
@@ -57,7 +62,7 @@ const App = () => {
           </button>
         </form>
 
-        <TrackList tracks={trackList} setSort={setSort} />
+        <TrackList tracks={trackList} />
       </div>
     </div>
   );
