@@ -57,14 +57,20 @@ const TrackList = ({ tracks }) => {
     setSortByRating(false);
   }, [tracks]);
 
-  useEffect(() => {
-    const list = tracksToList.sort((a, b) =>
-      sortByRating === true
-        ? a.track.track_rating < b.track.track_rating
-        : a.track.track_rating > b.track.track_rating
-    );
+  const handleSortByRating = (boolean) => {
+    let list = [];
+    if (boolean) {
+      list = tracksToList.sort((a, b) =>
+        a.track.track_rating < b.track.track_rating ? 1 : -1
+      );
+    } else {
+      list = tracksToList.sort((a, b) =>
+        a.track.track_rating > b.track.track_rating ? 1 : -1
+      );
+    }
     setFilteredList(list);
-  }, [sortByRating]);
+    setSortByRating(boolean);
+  };
 
   let tracksToList = [];
   if (genreFilter === 0) {
@@ -119,7 +125,7 @@ const TrackList = ({ tracks }) => {
         <div className="filters">
           <button
             className="sort-button"
-            onClick={() => setSortByRating(!sortByRating)}
+            onClick={() => handleSortByRating(!sortByRating)}
           >
             Rating <FaCaretDown className={iconSort} />
           </button>

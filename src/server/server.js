@@ -89,10 +89,10 @@ const renderApp = (request, response) => {
   response.send(setResponse(html, request.hashManifest));
 };
 
-app.get("/searchTracks/:search/:sort", (req, res) => {
-  const { search, sort } = req.params;
+app.get("/searchTracks/:search/:sortByRating", (req, res) => {
+  const { search, sortByRating } = req.params;
 
-  searchTrack(search, sort)
+  searchTrack(search, sortByRating)
     .then(
       (response) =>
         response.status === 200 &&
