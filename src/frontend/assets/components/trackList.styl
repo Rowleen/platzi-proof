@@ -8,6 +8,7 @@
   .genres
     display: flex
     flex: 1
+    flex-flow: row wrap
     padding-left: 2rem
     align-items: center
 
@@ -49,15 +50,18 @@
       cursor: pointer;
       display: flex
       align-items: center
-      background-color: transparent
+      background-color: rgba(0, 0, 0, .3)
+      border-radius: border-radius-elements
       color: white
       border: unset
-      padding: .4rem .8rem
+      padding: .4rem 1rem
 
       &:hover
         background-color: rgba(0, 0, 0, .5)
-        border-radius: border-radius-elements
         color: secondary-color
+      
+      &:focus
+        outline: none
 
       .icon-sort
         margin-left: .5rem
@@ -70,4 +74,4 @@
   display: grid
   grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr))
   grid-column-gap: 2rem
-  grid-row-gap: 2rem
+  grid-row-gap: 3rem

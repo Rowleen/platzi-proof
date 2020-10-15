@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { FaRegPlayCircle, FaStar } from "react-icons/fa";
+import { FaMusic, FaStar } from "react-icons/fa";
 
 import { Pill } from "components";
 
@@ -10,7 +10,7 @@ const Track = ({ artist, updateFilter, name, genres, rating }) => {
   return (
     <article className="track-wrapper">
       <div className="cover">
-        <FaRegPlayCircle className="icon-play" />
+        <FaMusic className="icon-lyric" />
         <h3 className="track-title">{name}</h3>
         <div className="rating">
           <FaStar className="icon-stars" />

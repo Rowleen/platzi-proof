@@ -61,11 +61,11 @@ const TrackList = ({ tracks }) => {
     let list = [];
     if (boolean) {
       list = tracksToList.sort((a, b) =>
-        a.track.track_rating < b.track.track_rating ? 1 : -1
+        a.track.track_rating > b.track.track_rating ? 1 : -1
       );
     } else {
       list = tracksToList.sort((a, b) =>
-        a.track.track_rating > b.track.track_rating ? 1 : -1
+        a.track.track_rating < b.track.track_rating ? 1 : -1
       );
     }
     setFilteredList(list);
