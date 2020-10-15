@@ -3,11 +3,13 @@
 .genres-wrapper
   display: flex
   margin: 3rem 0
-  align-items: center
+  justify-content: space-between
 
   .genres
     display: flex
+    flex: 1
     padding-left: 2rem
+    align-items: center
 
     .pill-clear
       cursor: pointer
@@ -19,7 +21,6 @@
       text-align: center
       color: white
       background-color: rgba(0, 0, 0, .5)
-      border: solid 1px black
       transition: all .2s ease
       display: none
 
@@ -39,7 +40,33 @@
         margin-left: .5rem
         transition: transform .25s ease-in
 
-.tracks-grid  
+  .filters
+    display: flex
+    justify-content: flex-end
+    align-items: center
+
+    .sort-button
+      cursor: pointer;
+      display: flex
+      align-items: center
+      background-color: transparent
+      color: white
+      border: unset
+      padding: .4rem .8rem
+
+      &:hover
+        background-color: rgba(0, 0, 0, .5)
+        border-radius: border-radius-elements
+        color: secondary-color
+
+      .icon-sort
+        margin-left: .5rem
+
+        &.desc
+          transform: rotate(180deg)
+
+
+.tracks-grid
   display: grid
   grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr))
   grid-column-gap: 2rem

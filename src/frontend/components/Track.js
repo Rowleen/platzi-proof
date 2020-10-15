@@ -1,17 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { FaRegPlayCircle } from "react-icons/fa";
+import { FaRegPlayCircle, FaStar } from "react-icons/fa";
 
 import { Pill } from "components";
 
 import "styles/components/track.styl";
 
-const Track = ({ artist, updateFilter, name, genres }) => {
+const Track = ({ artist, updateFilter, name, genres, rating }) => {
   return (
     <article className="track-wrapper">
       <div className="cover">
         <FaRegPlayCircle className="icon-play" />
         <h3 className="track-title">{name}</h3>
+        <div className="rating">
+          <FaStar className="icon-stars" />
+          <span className="rating-score">{rating}</span>
+        </div>
       </div>
 
       <div className="track-info">
@@ -38,6 +42,7 @@ Track.propTypes = {
   genres: PropTypes.array,
   filter: PropTypes.func,
   updateFilter: PropTypes.func,
+  rating: PropTypes.number,
 };
 
 export default Track;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
-import { FaTimes } from "react-icons/fa";
+import { FaTimes, FaCaretDown } from "react-icons/fa";
 
 import { Track, Pill } from "components";
 
@@ -9,6 +9,7 @@ import "styles/components/trackList.styl";
 
 const TrackList = ({ tracks }) => {
   const [genreFilter, setGenreFilter] = useState(0);
+  const [sortByRating, setSortByRating] = useState(false);
   const [filteredList, setFilteredList] = useState([]);
   const [genres, setGenres] = useState([]);
 
@@ -53,7 +54,17 @@ const TrackList = ({ tracks }) => {
     });
 
     setGenres(distinctGenres);
+    setSortByRating(false);
   }, [tracks]);
+
+  useEffect(() => {
+    const list = tracksToList.sort((a, b) =>
+      sortByRating === true
+        ? a.track.track_rating < b.track.track_rating
+        : a.track.track_rating > b.track.track_rating
+    );
+    setFilteredList(list);
+  }, [sortByRating]);
 
   let tracksToList = [];
   if (genreFilter === 0) {
@@ -72,6 +83,7 @@ const TrackList = ({ tracks }) => {
         album={result.track.album_name}
         genres={result.track.primary_genres.music_genre_list}
         updateFilter={setGenreFilter}
+        rating={result.track.track_rating}
       />
     ));
   }
@@ -81,10 +93,16 @@ const TrackList = ({ tracks }) => {
     show: genres.length > 0 && genreFilter !== 0,
   });
 
+  const iconSort = classNames({
+    "icon-sort": true,
+    desc: sortByRating,
+  });
+
   return (
     <>
       <div className="genres-wrapper">
         <h2 className="section-title">Lyrics list</h2>
+
         <div className="genres">
           {genres.map((genre, index) => (
             <Pill
@@ -96,6 +114,15 @@ const TrackList = ({ tracks }) => {
           <span className={pillClear} onClick={() => setGenreFilter(0)}>
             Clear <FaTimes className="icon-times" />
           </span>
+        </div>
+
+        <div className="filters">
+          <button
+            className="sort-button"
+            onClick={() => setSortByRating(!sortByRating)}
+          >
+            Rating <FaCaretDown className={iconSort} />
+          </button>
         </div>
       </div>
 
