@@ -27,12 +27,17 @@ const Lyric = ({ lyric }) => {
 
   const lyricWrapper = classNames({
     "lyric-wrapper": true,
-    "show-lyric": toggle,
+    "show-lyric-container": toggle,
+  });
+
+  const lyricContainer = classNames({
+    "lyric-container": true,
+    "show-lyric-container": toggle,
   });
 
   return (
     <article className={lyricWrapper}>
-      <div className="lyric-container">
+      <div className={lyricContainer}>
         <FaRegTimesCircle
           className="close-lyric"
           onClick={() => handleToggleOnClick()}

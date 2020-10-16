@@ -11,21 +11,26 @@
   align-items: center
   opacity: 0
   z-index: -1
-  transition: all .2s ease
-  background-color: rgba(255, 255, 255, .2)
+  transition: all .6s ease
+  background-color: rgba(backgroundColor, .7)
 
-  &.show-lyric
+  &.show-lyric-container
     opacity: 1
     z-index: 1
 
   .lyric-container
     position: relative
+    top -100vh
     width: 100%
     max-width: 40rem
     height: auto
     background-color: background-color-accent
     border-radius: border-radius-containers
-    
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+
+    &.show-lyric-container
+      top 0
+
     .close-lyric
       cursor: pointer
       position: absolute
@@ -33,10 +38,9 @@
       right: 1rem
       color: white
       font-size: 2rem
-    
+
     .lyric-body
       height: auto
       color: white
-      overflow-y: auto 
+      overflow-y: auto
       padding: 2rem
-

@@ -7,7 +7,7 @@ import { Lyric, Spinner, TrackList } from "components";
 import "styles/app.styl";
 
 const App = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState();
   const [lyric, setLyric] = useState({});
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("desc");
@@ -51,9 +51,9 @@ const App = () => {
 
   return (
     <div className="app">
-      <Spinner isLoading={isLoading} />
+      {(isLoading || isLoading === false) && <Spinner isLoading={isLoading} />}
 
-      <Lyric lyric={lyric} />
+      {lyric.lyrics_body && <Lyric lyric={lyric} />}
 
       <div className="content">
         <form className="form" onSubmit={(event) => handleSearch(event)}>
