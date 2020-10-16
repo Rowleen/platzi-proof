@@ -12,26 +12,31 @@
   opacity: 0
   z-index: -1
   transition: all .2s ease
+  background-color: rgba(255, 255, 255, .4)
 
   &.show-lyric
     opacity: 1
     z-index: 1
 
   .lyric-container
+    position: relative
     width: 100%
     max-width: 40rem
     height: auto
-    padding: 2rem
     background-color: background-color-accent
     border-radius: border-radius-containers
-
+    
     .close-lyric
+      cursor: pointer
       position: absolute
       top: 1rem
       right: 1rem
       color: white
+      font-size: 2rem
     
     .lyric-body
-      height: 30rem
+      height: auto
       color: white
       overflow-y: auto 
+      padding: 2rem
+

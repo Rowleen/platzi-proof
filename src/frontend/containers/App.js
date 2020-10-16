@@ -52,7 +52,9 @@ const App = () => {
   return (
     <div className="app">
       <Spinner isLoading={isLoading} />
+
       <Lyric lyric={lyric} />
+
       <div className="content">
         <form className="form" onSubmit={(event) => handleSearch(event)}>
           <input
