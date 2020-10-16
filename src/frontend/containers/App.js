@@ -60,7 +60,7 @@ const App = () => {
           <input
             type="text"
             className="input"
-            placeholder="Busca tu canción"
+            placeholder="Search your lyric here"
             onChange={(event) => handleOnChange(event)}
             value={search}
           />
