@@ -1,0 +1,37 @@
+@import "styles/variables"
+
+.lyric-wrapper
+  position: fixed
+  top: 0
+  left: 0
+  width: 100vw
+  height: 100vh
+  display: flex
+  justify-content: center
+  align-items: center
+  opacity: 0
+  z-index: -1
+  transition: all .2s ease
+
+  &.show-lyric
+    opacity: 1
+    z-index: 1
+
+  .lyric-container
+    width: 100%
+    max-width: 40rem
+    height: auto
+    padding: 2rem
+    background-color: background-color-accent
+    border-radius: border-radius-containers
+
+    .close-lyric
+      position: absolute
+      top: 1rem
+      right: 1rem
+      color: white
+    
+    .lyric-body
+      height: 30rem
+      color: white
+      overflow-y: auto 

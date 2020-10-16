@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import { getLyric, searchTrack } from "api/client";
 import { FaSearch } from "react-icons/fa";
 
-import { Spinner, TrackList } from "components";
+import { Lyric, Spinner, TrackList } from "components";
 
 import "styles/app.styl";
 
 const App = () => {
-  const [search, setSearch] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [lyric, setLyric] = useState({});
+  const [search, setSearch] = useState("");
   const [sort, setSort] = useState("desc");
   const [trackList, setTrackList] = useState([]);
-  const [lyric, setLyric] = useState({});
 
   const handleSearch = (event) => {
     setIsLoading(true);
@@ -48,10 +48,11 @@ const App = () => {
     const { value } = event.target;
     setSort(value);
   };
-  console.log(lyric);
+
   return (
     <div className="app">
       <Spinner isLoading={isLoading} />
+      <Lyric lyric={lyric} />
       <div className="content">
         <form className="form" onSubmit={(event) => handleSearch(event)}>
           <input
