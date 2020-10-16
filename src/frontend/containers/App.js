@@ -57,23 +57,28 @@ const App = () => {
 
       <div className="content">
         <form className="form" onSubmit={(event) => handleSearch(event)}>
-          <input
-            type="text"
-            className="input"
-            placeholder="Search your lyric here"
-            onChange={(event) => handleOnChange(event)}
-            value={search}
-          />
+          <span className="form-elements">
+            <input
+              type="text"
+              className="input"
+              placeholder="Search your lyric here"
+              onChange={(event) => handleOnChange(event)}
+              value={search}
+            />
 
-          <select className="select" onChange={(event) => handleSetSort(event)}>
-            <option value="desc">Sort songs</option>
-            <option value="desc">Popular</option>
-            <option value="asc">Unpopular</option>
-          </select>
+            <select
+              className="select"
+              onChange={(event) => handleSetSort(event)}
+            >
+              <option value="desc">Sort songs</option>
+              <option value="desc">Popular</option>
+              <option value="asc">Unpopular</option>
+            </select>
 
-          <button type="submit" className="button search">
-            <FaSearch className="icon" />
-          </button>
+            <button type="submit" className="button search">
+              <FaSearch className="icon" />
+            </button>
+          </span>
         </form>
 
         <TrackList tracks={trackList} handleOnGetLyric={handleOnGetLyric} />

@@ -48,67 +48,85 @@ code
       justify-content: center
 
       &:focus-within
-        .button, .select, .input
-          outline: unset
-          color: white
-          outline: unset
+        .form-elements
+          animation: pulse-disco 2s cubic-bezier(0.26, 1.36, 0.74, -0.29) infinite;
+          border: solid 1px
           border-color: primary-color
-          background-color: rgba(background-color-accent, .6)
+        
+          .input, .select, .button .icon
+            color white
+
+      .form-elements
+        display: flex
+        border: solid 1px background-color-accent
+        width: 35rem
+        border-radius: border-radius-elements
+        box-shadow 0 0.25rem 0.25rem rgba(backgroundColor)
+
+        .input
+          width: 23rem
+          height: 3rem
+          border: solid 1px lightGrey
+          padding: .5rem 0 .5rem 1.5rem
+          background-color: background-color-accent;
+          border-bottom-left-radius: border-radius-elements
+          border-top-left-radius: border-radius-elements
+          font-size: 1.5rem
+          color: white
+          border-color: background-color-accent
+          border-right: unset
+          transition: all .2s ease
+          outline: none
+
+        .select
+          width: 8rem
+          font-size: 1rem
+          color: white
+          padding: 0 .8rem
+          color: disabled-text
+          border: solid 1px
+          border-left: unset
+          border-right: unset
+          outline: unset
+          border-color: background-color-accent;
+          background-color: background-color-accent;
+          transition: all .2s ease
+
+        .button
+          cursor: pointer
+          width: 4rem
+          display: flex
+          align-items: center
+          justify-content: center
+          background-color: background-color-accent
+          border: solid 1px
+          border-left: unset
+          border-color: background-color-accent
+          border-top-right-radius: border-radius-elements
+          border-bottom-right-radius: border-radius-elements
+          transition: all .2s ease
+
+          &:hover
+            background-color: rgba(background-color-accent, .4)
+
+          &:focus
+            outline: unset
 
           .icon
-            color: white
+            font-size: 1.5rem
+            color: disabled-text
 
-      .input
-        width: 23rem
-        height: 3rem
-        border: solid 1px lightGrey
-        padding: .5rem 0 .5rem 1.5rem
-        background-color: background-color-accent;
-        border-bottom-left-radius: border-radius-elements
-        border-top-left-radius: border-radius-elements
-        font-size: 1.5rem
-        color: white
-        border-color: background-color-accent
-        border-right: unset
-        transition: all .2s ease
-
-      .select
-        width: 8rem
-        font-size: 1rem
-        color: white
-        padding: 0 .8rem
-        color: disabled-text
-        border: solid 1px
-        border-left: unset
-        border-right: unset
-        outline: unset
-        border-color: background-color-accent;
-        background-color: background-color-accent;
-        transition: all .2s ease
-
-      .button
-        cursor: pointer
-        width: 4rem
-        display: flex
-        align-items: center
-        justify-content: center
-        background-color: background-color-accent
-        border: solid 1px
-        border-left: unset
-        border-color: background-color-accent
-        border-top-right-radius: border-radius-elements
-        border-bottom-right-radius: border-radius-elements
-        transition: all .2s ease
-
-        &:hover 
-          background-color: rgba(background-color-accent, .4)
-
-        &:focus
-          outline: unset
-
-        .icon
-          font-size: 1.5rem
-          color: disabled-text
+@keyframes pulse-disco
+  0%
+    box-shadow 0 0 0.25rem rgba(primary-color, 1)
+  25%
+    box-shadow 0 .25rem .25rem rgba(secondary-color, 1)
+  50%
+    box-shadow 0 0 0.25rem rgba(primary-color-hover, 1)
+  75%
+    box-shadow 0 .25rem 0.25rem rgba(third-color, 1)
+  100%
+    box-shadow 0 0 0.25rem rgba(secondary-color-hover, 1)
 
 @media (max-width: 600px) {
   .facet_sidebar {
