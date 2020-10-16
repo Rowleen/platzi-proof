@@ -68,7 +68,7 @@ const setResponse = (html, manifest) => {
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>Lyrics.io</title>
         </head>
-        <body>
+        <body id="body">
           <div id="root">${html}</div>
           <script src="${mainBuild}" type="text/javascript"></script>
           <script src="${vendorBuild}" type="text/javascript"></script>

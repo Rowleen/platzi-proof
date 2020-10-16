@@ -12,11 +12,18 @@ const Lyric = ({ lyric }) => {
     string ? string.replace(/\n/g, "<br />") : null;
 
   useEffect(() => {
-    if (Object.prototype.hasOwnProperty.call(lyric, "lyrics_body"))
+    if (Object.prototype.hasOwnProperty.call(lyric, "lyrics_body")) {
+      const body = document.getElementById("body");
+      body.classList.add("no-overflow");
       setToggle(true);
+    }
   }, [lyric]);
 
-  const handleToggleOnClick = () => setToggle(false);
+  const handleToggleOnClick = () => {
+    const body = document.getElementById("body");
+    body.classList.remove("no-overflow");
+    setToggle(false);
+  };
 
   const lyricWrapper = classNames({
     "lyric-wrapper": true,
