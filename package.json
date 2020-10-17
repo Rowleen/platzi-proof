@@ -6,7 +6,7 @@
     "start": "node src/server/index",
     "start-dev": "nodemon src/server/index.js",
     "build": "webpack-cli --config webpack.config.js",
-    "test": "jest",
+    "test": "jest --config ./jest-config.json",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "test:updateSnapshot": "jest --updateSnapshot",
@@ -97,14 +97,5 @@
   "lint-staged": {
     "*.js": "eslint --cache --fix",
     "*.{js,css,md}": "prettier --write"
-  },
-  "jest": {
-    "verbose": true,
-    "setupFilesAfterEnv": [
-      "<rootDir>/src/__test__/setupTest.js"
-    ],
-    "moduleNameMapper": {
-      "\\.(styl|css)$": "<rootDir>/src/__mocks__/styleMock.js"
-    }
   }
 }
