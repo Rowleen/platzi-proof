@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import React from "React";
+import React from "react";
 import { mount } from "enzyme";
 
 import App from "containers/App";
