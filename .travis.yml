@@ -17,6 +17,7 @@ deploy:
   skip-cleanup: true
   keep-history: true
   local-dir: src/server/public
+  target-branch: travis-deploy
   commit_message: "Deploy release ${TRAVIS_TAG}"
   on:
     branch: main
