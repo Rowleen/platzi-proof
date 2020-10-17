@@ -8,6 +8,8 @@
     "build": "webpack-cli --config webpack.config.js",
     "test": "jest",
     "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:updateSnapshot": "jest --updateSnapshot",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -81,6 +83,7 @@
     "nodemon": "^2.0.4",
     "path": "^0.12.7",
     "prettier": "^2.1.2",
+    "react-test-renderer": "^16.14.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-hot-middleware": "^2.25.0"
@@ -95,6 +98,7 @@
     "*.{js,css,md}": "prettier --write"
   },
   "jest": {
+    "verbose": true,
     "setupFilesAfterEnv": [
       "<rootDir>/src/__test__/setupTest.js"
     ],
