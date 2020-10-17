@@ -30,6 +30,7 @@ module.exports = {
     alias: {
       styles: path.resolve(__dirname, "./src/frontend/assets"),
       components: path.resolve(__dirname, "./src/frontend/components"),
+      containers: path.resolve(__dirname, "./src/frontend/containers"),
       api: path.resolve(__dirname, "./src/api"),
     },
     extensions: [".js", ".jsx"],
