@@ -1,20 +1,20 @@
 language: node_js
 cache:
   directories:
-    - ~/.npm
+  - "~/.npm"
 node_js:
-  - '12'
+- '12'
 git:
   depth: 3
 script:
-  - yarn test
-  - yarn build
+- yarn test
+- yarn build
 deploy:
   provider: heroku
   api_key:
-    secure: 8a51cdbe-b67d-42ef-b3c0-cf8e9f73677b
+    secure: SSwRwbMFgwRfR0DYItJnrp3y+QPiBI1trGsFQrgy1++CMxEccrQ/7/IzASA50PhNssdvgokr2k4oYb66jiz/xto3APRwmrbJGHh95jZ6yRCEaKK/fliPske64kpAsPxXRZmm4KAwPOUJ6/4S4bueDZc7Qbi0btlT4OfvzqPajCyL5PaoWO4QIzVxHwgtVAwNrHb+jmLzMpGixT8LN0rinA5C3NGIbXJz6G1eNm+yRRS1pdxyLQxNiY3Qlf0KCVApFgb8P4/Mn4WoN8UDdZJlcnAsTNc2Y4OsTHBD9LqiJbhZ7pIGabYnRND0fx8Dj+QO4t4MdNKSHbvDAbtlRy3OqXr/jc9tH7UmMLKgLamReiT3cYnOpC3I8vDUPawDrsLeyy+01/OoN9zRhMOWulQLdqMnj6DINhew8FoHg6QswZjRm8LA7w3S3m1dtm85S0MnnN4bEyODO6ZUse2GMCcY4Ajl7X/acvrTYf2+sFnmZMreS6Lb6eeoYnGZRKd7ezWs63UUPrYj/SZDbzK8XywUN/7R7qrUsIZzWDNfGOWfLs0ieiaQOgwZWZzS/uRKjFtSaOb6wuqJ/nAENXnlCBOoadgVIZDDIUB6lHnJtOEcRdBQ3wrfA+cSSwvwJREgAHo9l16Og4q9irHaztysrpVBFYDwdoWLpbutyyeJJ4jSrGo=
   app: songs-io
   target-branch: travis-deploy
-  commit_message: "Deploy release ${TRAVIS_TAG}"
+  commit_message: Deploy release ${TRAVIS_TAG}
   on:
     branch: main
