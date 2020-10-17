@@ -17,4 +17,4 @@ deploy:
   target-branch: travis-deploy
   commit_message: "Deploy release ${TRAVIS_TAG}"
   on:
-    branch: Rowleen/main
+    branch: main
