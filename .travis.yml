@@ -13,8 +13,3 @@ deploy:
   provider: heroku
   api_key:
     secure: In19qE0vDlHoKEc14UUkh5ZrPWfIY9n8+gZEbwC8kKpfx9nxERLMjze9QHoQ88CYS3BifsDKdZqZh1HiDPEeiCLpTUpLG9zYAmXQZcs7Efl3DJxa4gTvYedg3xahVjDpYsOm08hzNPWeF+pjrugdkcRkvztZ3sED0EFblpNlD0KKGWbsCxEGwm09eI1jJle283zMAnulyIPs1JsIOHkToBLQwFKjGYIrPfU0ybn1UHjpYk99KZJhSpsAZxeCVctfJGNdRgF+dXyGSEFbkRtQOA0xcfxNdOoW7tTaUf8FNQOlLujBWcQ91BYs8ur5w9yq9Ii7P2JM61uaXSYyo7SaTsp3R52jBGMPlNy3VsJPh+ss1VG9ULTEJkfUa0QQ3kMEq5Eh0GZqO59+VfdP/81z8HKsdDn0NpeQLvcnbOsG9yCGWZCyQMp60PzTfUngHry+BENWQ0g8WbkKRnXmv/GIASqUMzDeth5mG2TbhQRtUxeEFh06FMsv4M+dcJ8RJoGJvjeAcKzAq9FwS2XeqJU1txBEapt7ZNkOKjqGxCuG73R/ZnlYCn2C7f8VhHPfdFKT3/HK6Rf/w2NQ0UCFSJDcGe4tGWsahDSxEjYH+VkO4tfIyUQdzFHbGpsRdVB7x+l/Ar7XRZ+h2WjmLKk/RqPU7HVFFaO8LVe4jEj8n9BjBGg=
-  app: songs-io
-  target-branch: travis-deploy
-  commit_message: Deploy release ${TRAVIS_TAG}
-  on:
-    branch: main
