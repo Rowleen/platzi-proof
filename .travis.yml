@@ -18,3 +18,4 @@ deploy:
   keep-history: true
   target-branch: main
   local-dir: src/server/public
+  on: main
