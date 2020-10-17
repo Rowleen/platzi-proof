@@ -16,8 +16,5 @@ deploy:
   edge: true
   skip-cleanup: true
   keep-history: true
-  target-branch: heroku-deploy
+  target-branch: main
   local-dir: src/server/public
-  commit_message: "Deploy release ${TRAVIS_TAG}"
-  on:
-    branch: main
