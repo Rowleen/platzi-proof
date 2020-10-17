@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing <Footer /> Check if the UI not change 1`] = `
+<footer
+  className="footer"
+>
+  <div
+    className="footer-content"
+  >
+    Developed with 💚 for Platzi
+  </div>
+</footer>
+`;
