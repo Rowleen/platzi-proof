@@ -1,0 +1,22 @@
+language: node_js
+cache:
+  directories:
+    - ~/.npm
+node_js:
+  - '12'
+git:
+  depth: 3
+script:
+  - yarn test
+  - yarn build
+deploy:
+  provider: heroku
+  api_key:
+    secure: 8a51cdbe-b67d-42ef-b3c0-cf8e9f73677b
+  edge: true
+  skip-cleanup: true
+  keep-history: true
+  local-dir: src/server/public
+  commit_message: "Deploy release ${TRAVIS_TAG}"
+  on:
+    branch: main
