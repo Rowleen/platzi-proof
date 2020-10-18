@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing rendering and UI of <Header /> Check if the UI not change 1`] = `
+<header
+  className="header"
+>
+  <div
+    className="header-content"
+  >
+    <h1
+      className="site-title"
+    >
+      Lyrics.io
+    </h1>
+  </div>
+</header>
+`;
