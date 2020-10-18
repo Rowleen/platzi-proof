@@ -55,6 +55,11 @@ const App = () => {
     complete: trackList.length === 0,
   });
 
+  const welcomeText = classNames({
+    "welcome-text": true,
+    "hide-welcome": trackList.length > 0,
+  });
+
   return (
     <div className="app">
       {(isLoading || isLoading === false) && <Spinner isLoading={isLoading} />}
@@ -86,7 +91,7 @@ const App = () => {
             </button>
           </span>
 
-          <p className="welcome-text">
+          <p className={welcomeText}>
             To start, please write the name of your song or any term that have
             the name of the song and click over the magnifying glass button or
             press enter.
