@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import classNames from "classnames";
 import { getLyric, searchTrack } from "api/client";
 import { FaSearch } from "react-icons/fa";
 
@@ -49,6 +50,11 @@ const App = () => {
     setSort(value);
   };
 
+  const form = classNames({
+    form: true,
+    complete: trackList.length === 0,
+  });
+
   return (
     <div className="app">
       {(isLoading || isLoading === false) && <Spinner isLoading={isLoading} />}
@@ -56,7 +62,7 @@ const App = () => {
       {lyric.lyrics_body && <Lyric lyric={lyric} />}
 
       <div className="content">
-        <form className="form" onSubmit={(event) => handleSearch(event)}>
+        <form className={form} onSubmit={(event) => handleSearch(event)}>
           <span className="form-elements">
             <input
               type="text"
@@ -81,7 +87,9 @@ const App = () => {
           </span>
         </form>
 
-        <TrackList tracks={trackList} handleOnGetLyric={handleOnGetLyric} />
+        {trackList.length > 0 && (
+          <TrackList tracks={trackList} handleOnGetLyric={handleOnGetLyric} />
+        )}
       </div>
     </div>
   );
