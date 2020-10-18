@@ -20,7 +20,8 @@ Url de producción: https://songs-io.herokuapp.com/
 2. [Instalación](https://github.com/Rowleen/platzi-proof#instalaci%C3%B3n).
 3. [Scripts disponibles](https://github.com/Rowleen/platzi-proof#scripts-disponibles).
 4. [Tecnologías y librerías](https://github.com/Rowleen/platzi-proof#tecnolog%C3%ADas-y-librer%C3%ADas).
-5. [Despliegue](https://github.com/Rowleen/platzi-proof#despliegue).
+5. [Git-Hook](https://github.com/Rowleen/platzi-proof#git-hooks).
+6. [Despliegue](https://github.com/Rowleen/platzi-proof#despliegue).
 
 ## Requisitos previos
 
