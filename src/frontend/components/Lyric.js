@@ -19,8 +19,7 @@ const Lyric = ({ lyric }) => {
   }, [lyric]);
 
   const handleToggleOnClick = () => {
-    const body = document.getElementById("body");
-    body.classList.remove("no-overflow");
+    document.body.classList.remove("no-overflow");
     setToggle(false);
   };
 
