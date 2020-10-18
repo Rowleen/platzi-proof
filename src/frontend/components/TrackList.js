@@ -106,6 +106,11 @@ const TrackList = ({ handleOnGetLyric, tracks }) => {
     desc: sortByRating,
   });
 
+  const sortButton = classNames({
+    "sort-button": true,
+    "show-sort": trackList.length > 0,
+  });
+
   return (
     <>
       <div className="genres-wrapper">
@@ -126,10 +131,10 @@ const TrackList = ({ handleOnGetLyric, tracks }) => {
 
         <div className="filters">
           <button
-            className="sort-button"
+            className={sortButton}
             onClick={() => handleSortByRating(!sortByRating)}
           >
-            Rating <FaCaretDown className={iconSort} />
+            Order by rating <FaCaretDown className={iconSort} />
           </button>
         </div>
       </div>
