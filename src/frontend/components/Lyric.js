@@ -13,8 +13,7 @@ const Lyric = ({ lyric }) => {
 
   useEffect(() => {
     if (Object.prototype.hasOwnProperty.call(lyric, "lyrics_body")) {
-      const body = document.getElementById("body");
-      body.classList.add("no-overflow");
+      document.body.classList.add("no-overflow");
       setToggle(true);
     }
   }, [lyric]);
