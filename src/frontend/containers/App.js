@@ -76,15 +76,21 @@ const App = () => {
               className="select"
               onChange={(event) => handleSetSort(event)}
             >
-              <option value="desc">Sort songs</option>
-              <option value="desc">Popular</option>
-              <option value="asc">Unpopular</option>
+              <option value="desc">Sort by</option>
+              <option value="desc">Most rated</option>
+              <option value="asc">Less rated</option>
             </select>
 
             <button type="submit" className="button search">
               <FaSearch className="icon" />
             </button>
           </span>
+
+          <p className="welcome-text">
+            To start, please write the name of your song or any term that have
+            the name of the song and click over the magnifying glass button or
+            press enter.
+          </p>
         </form>
 
         {trackList.length > 0 && (
