@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Testing <Footer /> Check if the UI not change 1`] = `
+exports[`Testing rendering and UI of <Footer /> Check if the UI not change 1`] = `
 <footer
   className="footer"
 >
