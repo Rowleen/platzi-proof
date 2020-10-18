@@ -9,6 +9,7 @@ import "styles/app.styl";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState();
+  const [infoText, setInfoText] = useState(false);
   const [lyric, setLyric] = useState({});
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("desc");
@@ -20,9 +21,14 @@ const App = () => {
     event.preventDefault();
 
     searchTrack(search, sort)
-      .then(
-        (response) => response.status === 200 && setTrackList(response.data)
-      )
+      .then((response) => {
+        if (response.status === 200) {
+          setTrackList(response.data);
+        }
+        if (response.status === 200 && response.data.length === 0) {
+          setInfoText(true);
+        }
+      })
       .then(() => setIsLoading(false))
       .catch((error) => {
         console.log(error);
@@ -58,7 +64,13 @@ const App = () => {
   const welcomeText = classNames({
     "welcome-text": true,
     "hide-welcome": trackList.length > 0,
+    "info-text": infoText,
   });
+
+  const text = infoText
+    ? `Wops! We have not find what are you looking for 😅`
+    : `To start, please write the name of your song or any term that have
+  the name of the song and click over the magnifying glass button or press enter.`;
 
   return (
     <div className="app">
@@ -75,6 +87,7 @@ const App = () => {
               placeholder="Search your lyric here"
               onChange={(event) => handleOnChange(event)}
               value={search}
+              required
             />
 
             <select
@@ -91,11 +104,7 @@ const App = () => {
             </button>
           </span>
 
-          <p className={welcomeText}>
-            To start, please write the name of your song or any term that have
-            the name of the song and click over the magnifying glass button or
-            press enter.
-          </p>
+          <p className={welcomeText}>{text}</p>
         </form>
 
         {trackList.length > 0 && (
