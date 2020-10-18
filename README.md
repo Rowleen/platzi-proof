@@ -55,9 +55,7 @@ Todo cambio que realices en los estilos o el código, se actualizará automátic
 npm run build
 ```
 
-Compilará el proyecto para un entorno de desarrollo. Esto es una versión que usa la configuración _dev_ de _Webpack_.
-
-Esta configuración atacará el endpoint `https://eadmon-desa.uned.es:8443/uned-back-services`.
+Compilará el proyecto para un entorno de producción. Esto es una versión que usa la configuración.
 
 ### Lanzamiento de test
 
