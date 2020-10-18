@@ -1,68 +1,137 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p>
+	<img alt="React" src="https://img.shields.io/badge/-React-45b8d8?style=flat-square&logo=react&logoColor=white" />
+	<img alt="Webpack" src="https://img.shields.io/badge/-Webpack-8DD6F9?style=flat-square&logo=webpack&logoColor=white" />
+	<img alt="Sass" src="https://img.shields.io/badge/-Stylus-CC6699?style=flat-square&logo=stylus&logoColor=white" />
+	<img alt="html5" src="https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" />
+	<img alt="Prettier" src="https://img.shields.io/badge/-Prettier-F7B93E?style=flat-square&logo=prettier&logoColor=white" />
+	<img alt="Nodejs" src="https://img.shields.io/badge/-esLint-43853d?style=flat-square&logo=ESLint&logoColor=white" />
+	<img alt="git" src="https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white" />
+</p>
 
-## Available Scripts
+# Prueba técnica para Platzi
 
-In the project directory, you can run:
+Proyecto basado y desarrollado con [Create React App](https://github.com/facebook/create-react-app) más [Express](https://expressjs.com/es/) para el renderizado del lado del servidor.
 
-### `npm start`
+Url de producción: https://songs-io.herokuapp.com/
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Tabla de contenidos
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+1. [Requisitos previos](https://github.com/Rowleen/platzi-proof#requisitos-previos).
+2. [Instalación](https://github.com/Rowleen/platzi-proof#instalaci%C3%B3n).
+3. [Scripts disponibles](https://github.com/Rowleen/platzi-proof#scripts-disponibles).
+4. [Tecnologías y librerías](https://github.com/Rowleen/platzi-proof#tecnolog%C3%ADas-y-librer%C3%ADas).
+5. [Despliegue](https://github.com/Rowleen/platzi-proof#despliegue).
 
-### `npm test`
+## Requisitos previos
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node js >= v12.16.1
+- NPM >= 6.4.1
 
-### `npm run build`
+## Instalación
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Una vez dentro del repositorio, en la raíz del proyecto, ejecuta el siguiente comando para instalar las dependencias.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+```bash
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Scripts disponibles
 
-### `npm run eject`
+### Iniciar el proyecto en modo desarrollo
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+npm run dev-start
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Esto iniciará el proyecto con la configuración de las funciones que conectan con la _API_ y _Webpack_ en modo desarrollo.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Abriendo [http://localhost:3000](http://localhost:3000) podrás acceder mediante navegador a la aplicación.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Todo cambio que realices en los estilos o el código, se actualizará automáticamente en el navegador.
 
-## Learn More
+### Compilación del proyecto
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm run build
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Compilará el proyecto para un entorno de desarrollo. Esto es una versión que usa la configuración _dev_ de _Webpack_.
 
-### Code Splitting
+Esta configuración atacará el endpoint `https://eadmon-desa.uned.es:8443/uned-back-services`.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Lanzamiento de test
 
-### Analyzing the Bundle Size
+```bash
+npm run test
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Este comando lanzara todas las pruebas definidas con Jest y anunciará si todo ha ido bien o por el contrario, algo ha fallado.
 
-### Making a Progressive Web App
+### Observación continua de test
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+```bash
+npm run test:watch
+```
 
-### Advanced Configuration
+Este comando mantendrá un proceso abierto para la escucha continua de los test mientras se programan. Irá arrojando información sobre si los test pasan o bien fallan.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+### Covertura de test sobre el código
 
-### Deployment
+```bash
+npm run test:coverage
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+Devuelve un reporte sobre qué tanto hemos cubierto con tests el código de la aplicación.
 
-### `npm run build` fails to minify
+### Actualización de snapshots
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+```bash
+npm run test:updateSnapshot
+```
+
+Actualizará todas las snapshots que ya se habían generado previamente.
+
+### Linteo y formateo de código
+
+Este proyecto usa la configuración de [esLint](https://eslint.org/) + [Prettier](https://prettier.io/) para formatear el código y anunciar errores de sintaxis y malas prácticas en el código en el que se está trabajando.
+
+## Git-Hook
+
+Se ha integrado un git-hook para que no permita el envío de código al repositorio si hay errores y/o se están cometiendo malas prácticas.
+
+## Tecnologías y librerías
+
+Para profundizar y saber qué librerías y comandos usa el proyecto, puedes revisar `package.json`.
+
+### Dependencias base
+
+- [React](https://es.reactjs.org/), para el desarrollo de las vistas y la interfaz de usuario.
+- [Babel](https://babeljs.io/) - Transpilador de javascript modernos a javascript entendible por los navegadores.
+- [Webpack](https://webpack.js.org/). Como sistema de empaquetado y buildeo de la aplicación.
+
+  El archivo de configuración de _Webpack_ se llama _webpack.config.js_ y se encuentra en la raíz del proyecto.
+
+### Renderizado del lado del servidor (SSR)
+
+- [Express](https://expressjs.com/es/)
+
+### Formateo y calidad de código
+
+- [esLint](https://eslint.org/) para evaluar el código en búsqueda de errores, malas prácticas, errores semánticos y sintácticos. Su configuración está en el archivo `.eslintrc`.
+- [Prettier](https://prettier.io/) formateador de código. Su configuración está en el archivo `.prettierrc`.
+- [Jest](https://jestjs.io/), framework de testeo unitario para los componentes, estado de redux, acciones, etcétera.
+
+### Peticiones asíncronas al back
+
+- [Axios](https://github.com/axios/axios), permite lanzar promesas bastas en cliente HTTP para el navegador y node.js. Es de naturaleza isomórfica y además funciona en todos los navegadores (cross browsing ✔).
+
+### Estilos
+
+- [Stylus](https://stylus-lang.com/), como prepocesador de estilos CSS y la definición de variables globales para los distintos componentes de la aplicación.
+- [autoprefixer]() para añadir prefijos de forma automática para conseguir mayor covertura de compatiblidad con todos los navegadores más populares.
+
+## Despliegue
+
+La aplicación cuenta con integración continua por medio de [Travis CI](https://travis-ci.org/) y se despliega en Heroku una vez pasadas todas las pruebas.
+
+La app se puede probar en la siguiente URL: https://songs-io.herokuapp.com/
