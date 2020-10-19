@@ -106,7 +106,6 @@ const App = () => {
               <option value="desc">Most rated</option>
               <option value="asc">Less rated</option>
             </select>
-
             <button type="submit" className="button search">
               <FaSearch className="icon" />
             </button>
