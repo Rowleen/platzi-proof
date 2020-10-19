@@ -10,7 +10,7 @@ import "styles/app.styl";
 const App = () => {
   const [isLoading, setIsLoading] = useState();
   const [infoText, setInfoText] = useState(false);
-  const [lyric, setLyric] = useState({});
+  const [lyric, setLyric] = useState();
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("desc");
   const [trackList, setTrackList] = useState([]);
@@ -37,8 +37,16 @@ const App = () => {
   };
 
   const handleOnGetLyric = (id) => {
+    setIsLoading(true);
+
     getLyric(id)
-      .then((response) => response.status === 200 && setLyric(response.data))
+      .then((response) => {
+        if (response.status === 200 && response.data) {
+          setLyric(response.data);
+        } else {
+          setLyric({});
+        }
+      })
       .then(() => setIsLoading(false))
       .catch((error) => {
         console.log(error);
@@ -76,7 +84,7 @@ const App = () => {
     <div className="app">
       {(isLoading || isLoading === false) && <Spinner isLoading={isLoading} />}
 
-      {lyric.lyrics_body && <Lyric lyric={lyric} />}
+      {lyric && <Lyric lyric={lyric} />}
 
       <div className="content">
         <form className={form} onSubmit={(event) => handleSearch(event)}>

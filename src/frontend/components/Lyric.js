@@ -7,14 +7,16 @@ import "styles/components/lyric.styl";
 
 const Lyric = ({ lyric }) => {
   const [toggle, setToggle] = useState(false);
-
+  const [message, setMessage] = useState("");
   const formatter = (string) =>
     string ? string.replace(/\n/g, "<br />") : null;
 
   useEffect(() => {
+    setToggle(true);
     if (Object.prototype.hasOwnProperty.call(lyric, "lyrics_body")) {
       document.body.classList.add("no-overflow");
-      setToggle(true);
+    } else {
+      setMessage("Wops! we haven't found a lyric for this song");
     }
   }, [lyric]);
 
@@ -40,10 +42,14 @@ const Lyric = ({ lyric }) => {
           className="close-lyric"
           onClick={() => handleToggleOnClick()}
         />
-        <div
-          className="lyric-body"
-          dangerouslySetInnerHTML={{ __html: formatter(lyric.lyrics_body) }}
-        />
+        {!message.length ? (
+          <div
+            className="lyric-body"
+            dangerouslySetInnerHTML={{ __html: formatter(lyric.lyrics_body) }}
+          />
+        ) : (
+          <div className="lyric-message">{message} 😅</div>
+        )}
       </div>
     </article>
   );
