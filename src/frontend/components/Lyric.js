@@ -13,9 +13,9 @@ const Lyric = ({ lyric }) => {
 
   useEffect(() => {
     setToggle(true);
-    if (Object.prototype.hasOwnProperty.call(lyric, "lyrics_body")) {
-      document.body.classList.add("no-overflow");
-    } else {
+    document.body.classList.add("no-overflow");
+
+    if (!Object.prototype.hasOwnProperty.call(lyric, "lyrics_body")) {
       setMessage("Wops! we haven't found a lyric for this song");
     }
   }, [lyric]);
