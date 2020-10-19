@@ -82,3 +82,18 @@
   grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr))
   grid-column-gap: 2rem
   grid-row-gap: 3rem
+
+@media (max-width: 360px)
+  .genres-wrapper
+    flex-direction: column
+    margin-bottom: 1rem
+
+    .section-title
+      display none
+    
+    .genres
+      padding-left: unset
+      margin-bottom: 2rem
+    
+    .filters
+      width: 100%
