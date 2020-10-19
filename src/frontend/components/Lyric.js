@@ -23,6 +23,7 @@ const Lyric = ({ lyric }) => {
   const handleToggleOnClick = () => {
     document.body.classList.remove("no-overflow");
     setToggle(false);
+    setMessage("");
   };
 
   const lyricWrapper = classNames({
@@ -48,7 +49,9 @@ const Lyric = ({ lyric }) => {
             dangerouslySetInnerHTML={{ __html: formatter(lyric.lyrics_body) }}
           />
         ) : (
-          <div className="lyric-message">{message} 😅</div>
+          <div className="lyric-message">
+            {message} <span className="emoji">😅</span>
+          </div>
         )}
       </div>
     </article>
