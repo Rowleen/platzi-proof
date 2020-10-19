@@ -63,6 +63,8 @@ const setResponse = (html, manifest) => {
       <html lang="es">
         <head>
           <meta charset="utf-8" />
+          <meta name="description" content="Searcher for song's lyrics, sorting for rating, popular and unpopular songs">
+          <meta name="keywords" content="searcher, lyrics, rating, popular, unpopular">
           <link href="${mainStyles}" rel="stylesheet" type="text/css">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>Lyrics.io</title>
