@@ -8,7 +8,7 @@
 	<img alt="git" src="https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white" />
 </p>
 
-# Prueba técnica para Platzi
+# Prueba técnica para Platzi [![Build Status](https://travis-ci.org/Rowleen/platzi-proof.svg?branch=main)](https://travis-ci.org/Rowleen/platzi-proof)
 
 Proyecto basado y desarrollado con [Create React App](https://github.com/facebook/create-react-app) más [Express](https://expressjs.com/es/) para el renderizado del lado del servidor.
 
