@@ -14,6 +14,10 @@ Proyecto basado y desarrollado con [Create React App](https://github.com/faceboo
 
 Url de producción: https://songs-io.herokuapp.com/
 
+## Responsive design
+
+Se ha tenido en cuenta un breakpoint para dispositivos móviles con hasta un máximo de 414px.
+
 ## Tabla de contenidos
 
 1. [Requisitos previos](https://github.com/Rowleen/platzi-proof#requisitos-previos).
