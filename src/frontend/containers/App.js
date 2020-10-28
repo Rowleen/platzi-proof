@@ -90,15 +90,17 @@ const App = () => {
         <form className={form} onSubmit={(event) => handleSearch(event)}>
           <span className="form-elements">
             <input
-              type="text"
+              aria-label="Search your lyric"
               className="input"
-              placeholder="Search your lyric here"
               onChange={(event) => handleOnChange(event)}
-              value={search}
+              placeholder="Search your lyric here"
               required
+              type="text"
+              value={search}
             />
 
             <select
+              aria-label="Sort by"
               className="select"
               onChange={(event) => handleSetSort(event)}
             >
@@ -106,7 +108,11 @@ const App = () => {
               <option value="desc">Most rated</option>
               <option value="asc">Less rated</option>
             </select>
-            <button type="submit" className="button search">
+            <button
+              type="submit"
+              className="button search"
+              aria-label="Search on Lyrics.io"
+            >
               <FaSearch className="icon" />
             </button>
           </span>
