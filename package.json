@@ -102,6 +102,9 @@
   },
   "jest": {
     "verbose": true,
+    "testPathIgnorePatterns" : [
+      "<rootDir>/cypress"
+    ],
     "setupFilesAfterEnv": [
       "<rootDir>/src/__test__/setupTest.js"
     ],
