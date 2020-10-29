@@ -62,6 +62,8 @@ npm run build
 
 Compilará el proyecto para un entorno de producción. Esto es una versión que usa la configuración.
 
+## Testing unitario
+
 ### Lanzamiento de test
 
 ```bash
@@ -93,6 +95,14 @@ npm run test:updateSnapshot
 ```
 
 Actualizará todas las snapshots que ya se habían generado previamente.
+
+## Testing E2E
+
+```bash
+npm run cy:open
+```
+
+Esto abrirá cypress con los test creados para probar la funcionalidad del front como si fueras un usuario.
 
 ### Linteo y formateo de código
 
