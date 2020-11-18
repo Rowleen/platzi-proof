@@ -36,8 +36,8 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "asset-require-hook": "^1.2.0",
-    "autoprefixer": "^10.0.1",
     "axios": "^0.20.0",
+    "autoprefixer": "^9.0.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-webpack-alias": "^2.1.2",
     "classnames": "^2.2.6",
@@ -102,7 +102,7 @@
   },
   "jest": {
     "verbose": true,
-    "testPathIgnorePatterns" : [
+    "testPathIgnorePatterns": [
       "<rootDir>/cypress"
     ],
     "setupFilesAfterEnv": [

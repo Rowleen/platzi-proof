@@ -1,6 +1,5 @@
 const path = require("path");
 const webpack = require("webpack");
-const autoprefixer = require("autoprefixer");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CompressionWebpackPlugin = require("compression-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
@@ -71,22 +70,7 @@ module.exports = {
       },
       {
         test: /\.styl$/,
-        use: ["style-loader", "css-loader", "stylus-loader"],
-      },
-      {
-        test: /\.styl$/,
-        use: [
-          {
-            loader: "postcss-loader",
-            options: {
-              plugins: () => [autoprefixer()],
-            },
-          },
-          {
-            loader: MiniCssExtractPlugin.loader,
-          },
-          "css-loader",
-        ],
+        use: ["style-loader", "css-loader", "postcss-loader", "stylus-loader"],
       },
       {
         test: /\.(png|gif|jpg)$/,

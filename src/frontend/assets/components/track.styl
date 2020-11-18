@@ -34,8 +34,8 @@
       width: 100%
       font-size: 1.5rem
       background: linear-gradient(90deg, #ED8770, #D9519D)
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text
+      -webkit-text-fill-color: transparent
       margin-bottom: unset
       white-space: nowrap
       overflow: hidden
@@ -74,40 +74,31 @@
 for index in (1..13)
   .track-wrapper
     &:nth-child({index})
-      animation-delay: index * (1s / 18);
+      animation-delay: index * (1s / 18)
 
-@keyframes pulse {
-  0% {
+@keyframes pulse
+  0%
     opacity: 0
     z-index: -1
-    transform: scale(1);
-  }
-  
-  25% {
-    transform: scale(1.030);
-  }
-  
-  50% {
+    transform: scale(1)
+
+  25%
+    transform: scale(1.030)
+
+  50%
     opacity: 1
     z-index: 1
-    transform: scale(1);
-  }
-}
+    transform: scale(1)
 
-@keyframes jump {
-  0% {
-    transform: scale(1);
-  }
-  
-  25% {
-    transform: scale(1.030);
-  }
-  
-  50% {
-    transform: scale(1);
-  }
+@keyframes jump
+  0%
+    transform: scale(1)
 
-  100% {
-    transform: scale(1.030);
-  }
-}
+  25%
+    transform: scale(1.030)
+
+  50%
+    transform: scale(1)
+
+  100%
+    transform: scale(1.030)
