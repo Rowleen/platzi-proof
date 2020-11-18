@@ -74,7 +74,7 @@ module.exports = {
         use: ["style-loader", "css-loader", "stylus-loader"],
       },
       {
-        test: /\.(s*)css$/,
+        test: /\.styl$/,
         use: [
           {
             loader: "postcss-loader",
