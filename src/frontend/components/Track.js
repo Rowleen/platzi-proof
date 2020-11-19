@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { FaMusic, FaStar } from "react-icons/fa";
 
-import { Pill } from "components";
+import { GenresList } from "components";
 
 import "styles/components/track.styl";
 
@@ -29,15 +29,7 @@ const Track = ({
       <div className="track-info">
         <p className="artist">{artist}</p>
         <div className="genres-track">
-          {genres.map((genre, index) => (
-            <Pill
-              className="genre"
-              genreId={genre.music_genre.music_genre_id}
-              genreName={genre.music_genre.music_genre_name}
-              handleOnClick={updateFilter}
-              key={index.toString()}
-            />
-          ))}
+          <GenresList list={genres} setGenre={updateFilter} />
         </div>
       </div>
     </article>

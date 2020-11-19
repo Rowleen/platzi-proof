@@ -1,21 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Pill } from "components";
-
 import "styles/components/genresList.styl";
 
 const GenresList = ({ list, setGenre }) => {
   return (
     <ul className="genres-list">
       {list.map((genre, index) => (
-        <Pill
+        <li
           key={`genre-${index}`}
-          genre={genre}
-          genreName={genre.music_genre_name}
-          genreId={genre.music_genre_id}
-          handleOnClick={setGenre}
-        />
+          className="pill"
+          onClick={() =>
+            setGenre(
+              parseInt(genre.music_genre_id || genre.music_genre.music_genre_id)
+            )
+          }
+        >
+          {genre.music_genre_name || genre.music_genre.music_genre_name}
+        </li>
       ))}
     </ul>
   );
