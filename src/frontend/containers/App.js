@@ -82,7 +82,9 @@ const App = () => {
 
   return (
     <div className="app">
-      {(isLoading || isLoading === false) && <Spinner isLoading={isLoading} />}
+      {(isLoading || isLoading === false) && (
+        <Spinner isLoading={isLoading} message="LOADING" />
+      )}
 
       {lyric && <Lyric lyric={lyric} />}
 
