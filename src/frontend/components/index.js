@@ -1,4 +1,6 @@
+export { default as FilteringList } from "./FilteringList";
 export { default as Footer } from "./Layout/Footer";
+export { default as GenresList } from "./GenresList";
 export { default as Header } from "./Layout/Header";
 export { default as Layout } from "./Layout/Layout";
 export { default as Lyric } from "./Lyric";

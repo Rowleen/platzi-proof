@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import classNames from "classnames";
 import PropTypes from "prop-types";
-import { FaTimes, FaCaretDown } from "react-icons/fa";
 
-import { Track, Pill } from "components";
+import { FilteringList, Track } from "components";
 
 import "styles/components/trackList.styl";
 
@@ -96,48 +94,17 @@ const TrackList = ({ handleOnGetLyric, tracks }) => {
     ));
   }
 
-  const pillClear = classNames({
-    "pill-clear": true,
-    show: genres.length > 0 && genreFilter !== 0,
-  });
-
-  const iconSort = classNames({
-    "icon-sort": true,
-    desc: sortByRating,
-  });
-
-  const sortButton = classNames({
-    "sort-button": true,
-    "show-sort": trackList.length > 0,
-  });
-
   return (
     <>
-      <div className="genres-wrapper">
-        <h2 className="section-title">Lyrics list</h2>
-
-        <div className="genres">
-          {genres.map((genre, index) => (
-            <Pill
-              key={`genre-${index}`}
-              genre={genre}
-              handleOnClick={setGenreFilter}
-            />
-          ))}
-          <span className={pillClear} onClick={() => setGenreFilter(0)}>
-            Clear <FaTimes className="icon-times" />
-          </span>
-        </div>
-
-        <div className="filters">
-          <button
-            className={sortButton}
-            onClick={() => handleSortByRating(!sortByRating)}
-          >
-            Order by rating <FaCaretDown className={iconSort} />
-          </button>
-        </div>
-      </div>
+      <FilteringList
+        genresList={genres}
+        actualFilter={genreFilter}
+        setGenreFilter={setGenreFilter}
+        title={"Genres List"}
+        handleOnSort={handleSortByRating}
+        isSorted={sortByRating}
+        trackListLength={trackList.length}
+      />
 
       <div className="tracks-grid">{trackList}</div>
     </>

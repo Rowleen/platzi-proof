@@ -32,9 +32,9 @@ const Track = ({
           {genres.map((genre, index) => (
             <Pill
               className="genre"
-              genre={genre.music_genre}
+              genreId={genre.music_genre.music_genre_id}
+              genreName={genre.music_genre.music_genre_name}
               handleOnClick={updateFilter}
-              id={genre.music_genre.music_genre_id}
               key={index.toString()}
             />
           ))}

@@ -3,17 +3,18 @@ import PropTypes from "prop-types";
 
 import "styles/components/pill.styl";
 
-const Pill = ({ genre, handleOnClick }) => {
+const Pill = ({ genreName, genreId, handleOnClick }) => {
   return (
-    <span className="pill" onClick={() => handleOnClick(genre.music_genre_id)}>
-      {genre.music_genre_name}
-    </span>
+    <li className="pill" onClick={() => handleOnClick(parseInt(genreId))}>
+      {genreName}
+    </li>
   );
 };
 
 Pill.propTypes = {
   handleOnClick: PropTypes.func,
-  genre: PropTypes.object.isRequired,
+  genreName: PropTypes.string.isRequired,
+  genreId: PropTypes.number,
 };
 
 export default Pill;
