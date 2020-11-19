@@ -9,7 +9,7 @@ const GenresList = ({ list, setGenre }) => {
       {list.map((genre, index) => (
         <li
           key={`genre-${index}`}
-          className="pill"
+          className="genre"
           onClick={() =>
             setGenre(
               parseInt(genre.music_genre_id || genre.music_genre.music_genre_id)
