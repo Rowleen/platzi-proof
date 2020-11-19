@@ -1,0 +1,76 @@
+@import "styles/variables"
+
+.genres-wrapper
+  display: flex
+  margin: 3rem 0
+  justify-content: space-between
+  align-items: center
+  .genres
+    display: flex
+    flex: 1
+    flex-flow: row wrap
+    padding-left: 2rem
+    align-items: center
+
+    .pill-clear
+      cursor: pointer
+      align-items: center
+      height: 1.8rem
+      border-radius: border-radius-elements
+      padding: .1rem .8rem
+      margin-right: .4rem
+      text-align: center
+      color: white
+      background-color: rgba(0, 0, 0, .5)
+      transition: all .2s ease
+      display: none
+
+      &.show
+        display: flex
+
+      &:hover
+        background-color:rgba(0, 0, 0, .65)
+        border-color: primary-color
+
+        >.icon-times
+          color: white
+          transform: rotate(270deg)
+
+      .icon-times
+        color: primary-color
+        margin-left: .5rem
+        transition: transform .25s ease-in
+
+  .sorter-wrapper
+    display: flex
+    justify-content: flex-end
+    align-items: center
+
+    .sort-button
+      cursor: pointer
+      display: flex
+      align-items: center
+      background-color: rgba(0, 0, 0, .3)
+      border-radius: border-radius-elements
+      color: white
+      border: unset
+      padding: .4rem 1rem
+      z-index -1
+      opacity 0
+
+      &:hover
+        background-color: rgba(0, 0, 0, .5)
+        color: secondary-color
+
+      &:focus
+        outline: none
+
+      &.show-sort
+        z-index 0
+        opacity 1
+
+      .icon-sort
+        margin-left: .5rem
+
+        &.desc
+          transform: rotate(180deg)
