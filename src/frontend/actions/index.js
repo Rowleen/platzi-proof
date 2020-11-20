@@ -8,6 +8,16 @@ export const setLyric = (payload) => ({
   payload,
 });
 
+export const setGenresList = (payload) => ({
+  type: "SET_GENRES_LIST",
+  payload,
+});
+
+export const setFilter = (payload) => ({
+  type: "SET_FILTER",
+  payload,
+});
+
 export const isLoading = (payload) => ({
   type: "IS_LOADING",
   payload,

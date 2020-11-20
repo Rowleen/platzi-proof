@@ -15,7 +15,13 @@ const reducer = (state, action) => {
     case "SET_GENRES_LIST":
       return {
         ...state,
-        genresList: action.payload,
+        genresList: [...action.payload],
+      };
+
+    case "SET_FILTER":
+      return {
+        ...state,
+        filterGenre: action.payload,
       };
 
     case "IS_LOADING":

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { FaRegTimesCircle } from "react-icons/fa";
 import classNames from "classnames";
+import { FaRegTimesCircle } from "react-icons/fa";
 
 import "styles/components/lyric.styl";
 

@@ -1,30 +1,47 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import { FilteringList, Track } from "components";
 
 import "styles/components/trackList.styl";
 
-const TrackList = ({ handleOnGetLyric, tracks }) => {
-  const [genreFilter, setGenreFilter] = useState(0);
+import { setFilter, setGenresList } from "actions";
+
+const mapStateToProps = (state) => ({
+  filterGenre: state.filterGenre,
+  isLoading: state.isLoading,
+  lyricsList: state.lyricsList,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  setGenresList: (list) => dispatch(setGenresList(list)),
+  setFilter: (filter) => dispatch(setFilter(filter)),
+});
+
+const TrackList = ({
+  filterGenre,
+  handleOnGetLyric,
+  lyricsList,
+  setGenresList,
+}) => {
   const [sortByRating, setSortByRating] = useState(false);
   const [filteredList, setFilteredList] = useState([]);
-  const [genres, setGenres] = useState([]);
 
   useEffect(() => {
-    const list = tracks.filter((track) =>
+    const list = lyricsList.filter((track) =>
       track.track.primary_genres.music_genre_list.some(
-        (genre) => genre.music_genre?.music_genre_id === genreFilter
+        (genre) => genre.music_genre?.music_genre_id === filterGenre
       )
     );
 
     setFilteredList(list);
-  }, [genreFilter]);
+  }, [filterGenre]);
 
   useEffect(() => {
-    setGenreFilter(0);
-    // Getting all genres from the tracks
-    const newGenres = tracks
+    setFilter(0);
+    // Getting all genres from the lyricsList
+    const newGenres = lyricsList
       .map((song) => {
         const genreList = song.track.primary_genres.music_genre_list;
 
@@ -40,7 +57,7 @@ const TrackList = ({ handleOnGetLyric, tracks }) => {
       .filter((genre) => genre !== undefined)
       .flat();
 
-    // Getting unique genres from genres taken of all tracks
+    // Getting unique genres from genres taken of all lyricsList
     const distinctGenres = Array.from(
       new Set(newGenres.map((genre) => genre.music_genre_id))
     ).map((id) => {
@@ -51,9 +68,9 @@ const TrackList = ({ handleOnGetLyric, tracks }) => {
       };
     });
 
-    setGenres(distinctGenres);
+    setGenresList(distinctGenres);
     setSortByRating(false);
-  }, [tracks]);
+  }, [lyricsList]);
 
   const handleSortByRating = (boolean) => {
     let list = [];
@@ -71,14 +88,14 @@ const TrackList = ({ handleOnGetLyric, tracks }) => {
   };
 
   let tracksToList = [];
-  if (genreFilter === 0) {
-    tracksToList = tracks;
+  if (filterGenre === 0) {
+    tracksToList = lyricsList;
   } else {
     tracksToList = filteredList;
   }
 
   let trackList = [];
-  if (tracks.length > 0) {
+  if (lyricsList.length > 0) {
     trackList = tracksToList.map((result, index) => (
       <Track
         album={result.track.album_name}
@@ -89,7 +106,6 @@ const TrackList = ({ handleOnGetLyric, tracks }) => {
         key={index.toString()}
         name={result.track.track_name}
         rating={result.track.track_rating}
-        updateFilter={setGenreFilter}
       />
     ));
   }
@@ -97,12 +113,9 @@ const TrackList = ({ handleOnGetLyric, tracks }) => {
   return (
     <>
       <FilteringList
-        genresList={genres}
-        actualFilter={genreFilter}
-        setGenreFilter={setGenreFilter}
-        title={"Genres List"}
         handleOnSort={handleSortByRating}
         isSorted={sortByRating}
+        title={"Genres List"}
         trackListLength={trackList.length}
       />
 
@@ -112,8 +125,10 @@ const TrackList = ({ handleOnGetLyric, tracks }) => {
 };
 
 TrackList.propTypes = {
+  filterGenre: PropTypes.number,
   handleOnGetLyric: PropTypes.func,
-  tracks: PropTypes.array,
+  lyricsList: PropTypes.array,
+  setGenresList: PropTypes.func,
 };
 
-export default TrackList;
+export default connect(mapStateToProps, mapDispatchToProps)(TrackList);
