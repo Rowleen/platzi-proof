@@ -80,8 +80,12 @@ code
           color: white
           border-color: background-color-accent
           border-right: unset
+          outline: unset
           transition: all .2s ease
-          outline: none
+
+          &:focus
+            &::placeholder
+              color: white
 
         .select
           width: 8rem
@@ -97,6 +101,9 @@ code
           background-color: background-color-accent;
           transition: all .2s ease
 
+          &:focus
+            border: solid 1px white
+
         .button
           cursor: pointer
           width: 4rem
@@ -110,12 +117,13 @@ code
           border-top-right-radius: border-radius-elements
           border-bottom-right-radius: border-radius-elements
           transition: all .2s ease
+          outline: unset
+
+          &:focus
+            border: solid 1px white
 
           &:hover
             background-color: rgba(background-color-accent, .4)
-
-          &:focus
-            outline: unset
 
           .icon
             font-size: 1.5rem
