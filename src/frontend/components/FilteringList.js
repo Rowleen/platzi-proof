@@ -37,13 +37,17 @@ const FilteringList = ({
 
       <div className="genres">
         <GenresList list={genresList} setGenre={setGenreFilter} />
-        <span className={pillClear} onClick={() => setGenreFilter(0)}>
+        <button className={pillClear} onClick={() => setGenreFilter(0)}>
           Clear <FaTimes className="icon-times" />
-        </span>
+        </button>
       </div>
 
       <div className="sorter-wrapper">
-        <button className={sortButton} onClick={() => handleOnSort(!isSorted)}>
+        <button
+          type="button"
+          className={sortButton}
+          onClick={() => handleOnSort(!isSorted)}
+        >
           Order by rating <FaCaretDown className={iconSort} />
         </button>
       </div>

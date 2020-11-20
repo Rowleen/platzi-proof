@@ -5,9 +5,9 @@ import "styles/components/genresList.styl";
 
 const GenresList = ({ list, setGenre }) => {
   return (
-    <ul className="genres-list">
+    <div className="genres-list">
       {list.map((genre, index) => (
-        <li
+        <button
           key={`genre-${index}`}
           className="genre"
           onClick={() =>
@@ -15,11 +15,12 @@ const GenresList = ({ list, setGenre }) => {
               parseInt(genre.music_genre_id || genre.music_genre.music_genre_id)
             )
           }
+          type="button"
         >
           {genre.music_genre_name || genre.music_genre.music_genre_name}
-        </li>
+        </button>
       ))}
-    </ul>
+    </div>
   );
 };
 

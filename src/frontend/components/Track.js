@@ -15,9 +15,17 @@ const Track = ({
   rating,
   updateFilter,
 }) => {
+  const handleOnPressEnter = (event, id) =>
+    event.keyCode === 13 ? getLyric(id) : null;
+
   return (
     <article className="track-wrapper">
-      <div className="cover" onClick={() => getLyric(id)}>
+      <div
+        className="cover"
+        onClick={() => getLyric(id)}
+        tabIndex="0"
+        onKeyDown={(event) => handleOnPressEnter(event, id)}
+      >
         <FaMusic className="icon-lyric" />
         <h3 className="track-title">{name}</h3>
         <div className="rating">
