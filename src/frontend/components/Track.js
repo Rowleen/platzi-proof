@@ -25,9 +25,13 @@ const Track = ({
         onClick={() => getLyric(id)}
         tabIndex="0"
         onKeyDown={(event) => handleOnPressEnter(event, id)}
+        title={`Song: ${name}`}
+        aria-labeeledby="songName"
       >
         <FaMusic className="icon-lyric" />
-        <h3 className="track-title">{name}</h3>
+        <h3 id="songName" className="track-title">
+          {name}
+        </h3>
         <div className="rating">
           <FaStar className="icon-stars" />
           <span className="rating-score">{rating}</span>
