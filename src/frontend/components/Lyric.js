@@ -28,6 +28,9 @@ const Lyric = ({ lyric }) => {
     setMessage("");
   };
 
+  const handleOnPressEnter = (event) =>
+    event.keyCode === 13 ? handleToggleOnClick() : null;
+
   const lyricWrapper = classNames({
     "lyric-wrapper": true,
     "show-lyric-container": toggle,
@@ -44,7 +47,8 @@ const Lyric = ({ lyric }) => {
         <FaRegTimesCircle
           id="close-lyric"
           className="close-lyric"
-          onClick={() => handleToggleOnClick()}
+          onClick={handleToggleOnClick}
+          onKeyDown={handleOnPressEnter}
           aria-label="Close"
           title="Close"
           tabIndex="-1"

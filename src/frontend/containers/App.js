@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import classNames from "classnames";
 import { getLyric, searchTrack } from "api/client";
 import { FaSearch } from "react-icons/fa";
@@ -14,23 +14,6 @@ const App = () => {
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("desc");
   const [trackList, setTrackList] = useState([]);
-
-  useEffect(() => {
-    searchTrack("happy", sort)
-      .then((response) => {
-        if (response.status === 200) {
-          setTrackList(response.data);
-        }
-        if (response.status === 200 && response.data.length === 0) {
-          setInfoText(true);
-        }
-      })
-      .then(() => setIsLoading(false))
-      .catch((error) => {
-        console.log(error);
-        setIsLoading(false);
-      });
-  }, []);
 
   const handleSearch = (event) => {
     setIsLoading(true);

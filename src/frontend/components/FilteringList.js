@@ -58,7 +58,7 @@ const FilteringList = ({
 FilteringList.propTypes = {
   genresList: PropTypes.array.isRequired,
   actualFilter: PropTypes.number.isRequired,
-  setGenreFilter: PropTypes.number.isRequired,
+  setGenreFilter: PropTypes.func.isRequired,
   title: PropTypes.string,
   handleOnSort: PropTypes.func.isRequired,
   isSorted: PropTypes.bool.isRequired,
