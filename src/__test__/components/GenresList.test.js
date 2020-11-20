@@ -18,7 +18,7 @@ describe("Check if functions are called clicking", () => {
     <GenresList list={genresMock} setGenre={setGenre} />
   );
 
-  test("Check if the set genre function it's called when click", () => {
+  test("Check if has more than one node as genre child", () => {
     const genres = Array.from(genresList.find(".genre"));
 
     expect(genres.length).toEqual(3);
