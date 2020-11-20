@@ -3,7 +3,7 @@ const reducer = (state, action) => {
     case "SET_LYRICS_LIST":
       return {
         ...state,
-        lyricsList: [action.payload],
+        lyricsList: [...action.payload],
       };
 
     case "SET_LYRIC":
@@ -16,6 +16,12 @@ const reducer = (state, action) => {
       return {
         ...state,
         genresList: action.payload,
+      };
+
+    case "IS_LOADING":
+      return {
+        ...state,
+        isLoading: action.payload,
       };
 
     default:

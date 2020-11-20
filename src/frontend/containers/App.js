@@ -1,84 +1,35 @@
-import React, { useState } from "react";
-import classNames from "classnames";
-import { getLyric, searchTrack } from "api/client";
-import { FaSearch } from "react-icons/fa";
+import React from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
-import { Lyric, Spinner, TrackList } from "components";
+import { Lyric, Searcher, Spinner, TrackList } from "components";
 
 import "styles/app.styl";
 
-const App = () => {
-  const [isLoading, setIsLoading] = useState();
-  const [infoText, setInfoText] = useState(false);
-  const [lyric, setLyric] = useState();
-  const [search, setSearch] = useState("");
-  const [sort, setSort] = useState("desc");
-  const [trackList, setTrackList] = useState([]);
+const mapStateToProps = (state) => ({
+  isLoading: state.isLoading,
+  lyric: state.lyric,
+  lyricsList: state.lyricsList,
+});
 
-  const handleSearch = (event) => {
-    setIsLoading(true);
-    setTrackList([]);
-    event.preventDefault();
+const App = ({ lyric, lyricsList, isLoading }) => {
+  // const handleOnGetLyric = (id) => {
+  //   isLoading(true);
 
-    searchTrack(search, sort)
-      .then((response) => {
-        if (response.status === 200) {
-          setTrackList(response.data);
-        }
-        if (response.status === 200 && response.data.length === 0) {
-          setInfoText(true);
-        }
-      })
-      .then(() => setIsLoading(false))
-      .catch((error) => {
-        console.log(error);
-        setIsLoading(false);
-      });
-  };
-
-  const handleOnGetLyric = (id) => {
-    setIsLoading(true);
-
-    getLyric(id)
-      .then((response) => {
-        if (response.status === 200 && response.data) {
-          setLyric(response.data);
-        } else {
-          setLyric({});
-        }
-      })
-      .then(() => setIsLoading(false))
-      .catch((error) => {
-        console.log(error);
-        setIsLoading(false);
-      });
-  };
-
-  const handleOnChange = (event) => {
-    const { value } = event.target;
-    setSearch(value);
-  };
-
-  const handleSetSort = (event) => {
-    const { value } = event.target;
-    setSort(value);
-  };
-
-  const form = classNames({
-    form: true,
-    complete: trackList.length === 0,
-  });
-
-  const welcomeText = classNames({
-    "welcome-text": true,
-    "hide-welcome": trackList.length > 0,
-    "info-text": infoText,
-  });
-
-  const text = infoText
-    ? `Wops! We have not find what are you looking for 😅`
-    : `To start, please write the name of your song or any term that have
-  the name of the song and click over the magnifying glass button or press enter.`;
+  //   getLyric(id)
+  //     .then((response) => {
+  //       if (response.status === 200 && response.data) {
+  //         setLyric(response.data);
+  //       } else {
+  //         setLyric({});
+  //       }
+  //     })
+  //     .then(() => isLoading(false))
+  //     .catch((error) => {
+  //       console.log(error);
+  //       isLoading(false);
+  //     });
+  // };
 
   return (
     <div className="app">
@@ -89,45 +40,20 @@ const App = () => {
       {lyric && <Lyric lyric={lyric} />}
 
       <div className="content">
-        <form className={form} onSubmit={(event) => handleSearch(event)}>
-          <span className="form-elements">
-            <input
-              aria-label="Search your lyric"
-              className="input"
-              onChange={(event) => handleOnChange(event)}
-              placeholder="Search your lyric here"
-              required
-              type="text"
-              value={search}
-            />
+        <Searcher />
 
-            <select
-              aria-label="Sort by"
-              className="select"
-              onChange={(event) => handleSetSort(event)}
-            >
-              <option value="desc">Sort by</option>
-              <option value="desc">Most rated</option>
-              <option value="asc">Less rated</option>
-            </select>
-            <button
-              type="submit"
-              className="button search"
-              aria-label="Search on Lyrics.io"
-            >
-              <FaSearch className="icon" />
-            </button>
-          </span>
-
-          <p className={welcomeText}>{text}</p>
-        </form>
-
-        {trackList.length > 0 && (
-          <TrackList tracks={trackList} handleOnGetLyric={handleOnGetLyric} />
+        {lyricsList.length > 0 && (
+          <TrackList tracks={lyricsList} handleOnGetLyric={() => {}} />
         )}
       </div>
     </div>
   );
 };
 
-export default App;
+App.propTypes = {
+  lyric: PropTypes.object,
+  lyricsList: PropTypes.array.isRequired,
+  isLoading: PropTypes.func,
+};
+
+export default connect(mapStateToProps, null)(App);
