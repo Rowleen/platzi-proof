@@ -1,6 +1,6 @@
 const initialState = {
   lyricsList: [],
-  lyric: {},
+  lyric: null,
   genresList: [],
   isLoading: false,
 };

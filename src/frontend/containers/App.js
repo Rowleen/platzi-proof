@@ -13,24 +13,6 @@ const mapStateToProps = (state) => ({
 });
 
 const App = ({ lyric, lyricsList, isLoading }) => {
-  // const handleOnGetLyric = (id) => {
-  //   isLoading(true);
-
-  //   getLyric(id)
-  //     .then((response) => {
-  //       if (response.status === 200 && response.data) {
-  //         setLyric(response.data);
-  //       } else {
-  //         setLyric({});
-  //       }
-  //     })
-  //     .then(() => isLoading(false))
-  //     .catch((error) => {
-  //       console.log(error);
-  //       isLoading(false);
-  //     });
-  // };
-
   return (
     <div className="app">
       {(isLoading || isLoading === false) && (
@@ -42,9 +24,7 @@ const App = ({ lyric, lyricsList, isLoading }) => {
       <div className="content">
         <Searcher />
 
-        {lyricsList.length > 0 && (
-          <TrackList tracks={lyricsList} handleOnGetLyric={() => {}} />
-        )}
+        {lyricsList.length > 0 && <TrackList tracks={lyricsList} />}
       </div>
     </div>
   );

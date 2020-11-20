@@ -3,6 +3,11 @@ export const setLyrics = (payload) => ({
   payload,
 });
 
+export const setLyric = (payload) => ({
+  type: "SET_LYRIC",
+  payload,
+});
+
 export const isLoading = (payload) => ({
   type: "IS_LOADING",
   payload,

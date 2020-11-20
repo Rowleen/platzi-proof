@@ -31,7 +31,6 @@ const Searcher = ({ lyricsList, setLyrics, isLoading }) => {
     searchTrack(search, sort)
       .then((response) => {
         if (response.status === 200) {
-          console.log(response.data);
           setLyrics(response.data);
         }
         if (response.status === 200 && response.data.length === 0) {
