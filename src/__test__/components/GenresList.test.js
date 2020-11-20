@@ -1,23 +1,26 @@
 /* eslint-disable no-undef */
 import React from "react";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import genresMock from "../../__mocks__/genresMock";
-import { Pill } from "components";
+import { GenresList } from "components";
 
 describe("Check rendering of the component and UI", () => {
-  const pill = shallow(<Pill genre={genresMock[0]} />);
+  const genresList = shallow(<GenresList list={genresMock} />);
 
   test("Check if the component render", () => {
-    expect(pill.length).toEqual(1);
+    expect(genresList.length).toEqual(1);
   });
 });
 
 describe("Check if functions are called clicking", () => {
   const setGenre = jest.fn();
-  const pill = shallow(<Pill genre={genresMock[0]} handleOnClick={setGenre} />);
+  const genresList = mount(
+    <GenresList list={genresMock} setGenre={setGenre} />
+  );
 
   test("Check if the set genre function it's called when click", () => {
-    pill.find(".pill").simulate("click");
-    expect(setGenre).toHaveBeenCalledTimes(1);
+    const genres = Array.from(genresList.find(".genre"));
+
+    expect(genres.length).toEqual(3);
   });
 });
