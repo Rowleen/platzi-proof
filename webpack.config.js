@@ -30,6 +30,7 @@ module.exports = {
       styles: path.resolve(__dirname, "./src/frontend/assets"),
       components: path.resolve(__dirname, "./src/frontend/components"),
       containers: path.resolve(__dirname, "./src/frontend/containers"),
+      context: path.resolve(__dirname, "./src/frontend/context"),
       api: path.resolve(__dirname, "./src/api"),
     },
     extensions: [".js", ".jsx"],

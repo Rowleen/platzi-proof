@@ -1,5 +1,4 @@
 import express from "express";
-import cors from "cors";
 import dotenv from "dotenv";
 import webpack from "webpack";
 import helmet from "helmet";
@@ -9,6 +8,10 @@ import { renderRoutes } from "react-router-config";
 import { StaticRouter } from "react-router-dom";
 import { Layout } from "components";
 import serverRoutes from "../frontend/routes/serverRoutes";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import reducer from "../frontend/reducers";
+import initialState from "../frontend/initialState";
 import getManifest from "./getManifest";
 
 dotenv.config();
@@ -17,11 +20,6 @@ const { ENV, PORT_DEV, PORT_PRO } = process.env;
 const port = ENV === "development" ? PORT_DEV : PORT_PRO;
 
 const app = express();
-app.use(
-  cors({
-    origin: ["*"],
-  })
-);
 
 if (ENV === "development") {
   console.log("#########################################");
@@ -53,7 +51,7 @@ if (ENV === "production") {
   app.disable("x-powered-by");
 }
 
-const setResponse = (html, manifest) => {
+const setResponse = (html, preloadedState, manifest) => {
   const mainStyles = manifest ? manifest["main.css"] : "assets/main.css";
   const mainBuild = manifest ? manifest["main.js"] : "assets/main.js";
   const vendorBuild = manifest ? manifest["vendors.js"] : "assets/vendor.js";
@@ -71,6 +69,12 @@ const setResponse = (html, manifest) => {
         </head>
         <body id="body">
           <div id="root">${html}</div>
+          <script>
+        window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(
+          /</g,
+          "\\u003c"
+        )}
+      </script>
           <script src="${mainBuild}" type="text/javascript"></script>
           <script src="${vendorBuild}" type="text/javascript"></script>
         </body>
@@ -79,15 +83,20 @@ const setResponse = (html, manifest) => {
 };
 
 const renderApp = (request, response) => {
+  const store = createStore(reducer, initialState);
+  const preloadedState = store.getState();
+
   const html = renderToString(
-    <Layout>
-      <StaticRouter location={request.url} context={{}}>
-        {renderRoutes(serverRoutes)}
-      </StaticRouter>
-    </Layout>
+    <Provider store={store}>
+      <Layout>
+        <StaticRouter location={request.url} context={{}}>
+          {renderRoutes(serverRoutes)}
+        </StaticRouter>
+      </Layout>
+    </Provider>
   );
 
-  response.send(setResponse(html, request.hashManifest));
+  response.send(setResponse(html, preloadedState, request.hashManifest));
 };
 
 require("./routes/routes")(app);
