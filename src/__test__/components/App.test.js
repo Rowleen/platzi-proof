@@ -1,11 +1,16 @@
 /* eslint-disable no-undef */
 import React from "react";
+import ProviderMock from "../../__mocks__/providerMock";
 import { mount } from "enzyme";
 
 import App from "containers/App";
 
 describe("Testing container <APP />", () => {
-  const app = mount(<App />);
+  const app = mount(
+    <ProviderMock>
+      <App />
+    </ProviderMock>
+  );
 
   test("Render of the component", () => {
     expect(app.length).toEqual(1);
