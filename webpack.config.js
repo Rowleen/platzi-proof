@@ -27,11 +27,11 @@ module.exports = {
   },
   resolve: {
     alias: {
-      styles: path.resolve(__dirname, "./src/frontend/assets"),
+      actions: path.resolve(__dirname, "./src/frontend/actions"),
+      api: path.resolve(__dirname, "./src/api"),
       components: path.resolve(__dirname, "./src/frontend/components"),
       containers: path.resolve(__dirname, "./src/frontend/containers"),
-      context: path.resolve(__dirname, "./src/frontend/context"),
-      api: path.resolve(__dirname, "./src/api"),
+      styles: path.resolve(__dirname, "./src/frontend/assets"),
     },
     extensions: [".js", ".jsx"],
   },
