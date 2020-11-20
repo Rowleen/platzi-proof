@@ -101,7 +101,6 @@ const TrackList = ({
         album={result.track.album_name}
         artist={result.track.artist_name}
         genres={result.track.primary_genres.music_genre_list}
-        getLyric={handleOnGetLyric}
         id={result.track.track_id}
         key={index.toString()}
         name={result.track.track_name}

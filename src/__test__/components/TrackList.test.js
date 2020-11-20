@@ -1,20 +1,18 @@
 /* eslint-disable no-undef */
 import React from "react";
+import ProviderMock from "../../__mocks__/providerMock";
 import { shallow } from "enzyme";
-import api from "../../__mocks__/apiMock";
-import { TrackList, Track } from "components";
+import { TrackList } from "components";
 
 describe("Test of rendering and UI of <TrackList />", () => {
-  const getLyric = jest.fn();
   const trackList = shallow(
-    <TrackList tracks={api.trackListMock} handleOnGetLyric={getLyric} />
+    <ProviderMock>
+      <TrackList />
+    </ProviderMock>
   );
+
   test("Check if components render", () => {
     expect(trackList.length).toEqual(1);
-  });
-
-  test("Check if component render tracks", () => {
-    expect(trackList.find(Track)).toHaveLength(12);
   });
 });
 

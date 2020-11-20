@@ -24,7 +24,7 @@ const App = ({ lyric, lyricsList, isLoading }) => {
       <div className="content">
         <Searcher />
 
-        {lyricsList.length > 0 && <TrackList tracks={lyricsList} />}
+        {lyricsList.length > 0 && <TrackList />}
       </div>
     </div>
   );
