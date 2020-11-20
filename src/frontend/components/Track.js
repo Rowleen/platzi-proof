@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { FaMusic, FaStar } from "react-icons/fa";
 
 import { getLyric } from "api/client";
-import { setLyric, isLoading } from "actions";
+import { setLyric, setFilter, setLoading } from "actions";
 
 import { GenresList } from "components";
 
@@ -12,21 +12,22 @@ import "styles/components/track.styl";
 
 const mapDispatchToProps = (dispatch) => ({
   setLyric: (lyric) => dispatch(setLyric(lyric)),
-  isLoading: (boolean) => dispatch(isLoading(boolean)),
+  setLoading: (boolean) => dispatch(setLoading(boolean)),
+  setFilter: (filter) => dispatch(setFilter(filter)),
 });
 
 const Track = ({
   artist,
   genres,
   id,
-  isLoading,
+  setLoading,
   name,
   rating,
+  setFilter,
   setLyric,
-  updateFilter,
 }) => {
   const handleOnGetLyric = (id) => {
-    isLoading(true);
+    setLoading(true);
 
     getLyric(id)
       .then((response) => {
@@ -36,10 +37,10 @@ const Track = ({
           setLyric({});
         }
       })
-      .then(() => isLoading(false))
+      .then(() => setLoading(false))
       .catch((error) => {
         console.log(error);
-        isLoading(false);
+        setLoading(false);
       });
   };
 
@@ -69,7 +70,7 @@ const Track = ({
       <div className="track-info">
         <p className="artist">{artist}</p>
         <div className="genres-track">
-          <GenresList list={genres} setGenre={updateFilter} />
+          <GenresList list={genres} setGenre={setFilter} />
         </div>
       </div>
     </article>
@@ -81,11 +82,11 @@ Track.propTypes = {
   filter: PropTypes.func,
   genres: PropTypes.array,
   id: PropTypes.number.isRequired,
-  isLoading: PropTypes.func,
+  setLoading: PropTypes.func,
   name: PropTypes.string,
   rating: PropTypes.number,
+  setFilter: PropTypes.func,
   setLyric: PropTypes.func.isRequired,
-  updateFilter: PropTypes.func,
 };
 
 export default connect(null, mapDispatchToProps)(Track);

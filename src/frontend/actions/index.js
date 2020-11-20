@@ -18,7 +18,7 @@ export const setFilter = (payload) => ({
   payload,
 });
 
-export const isLoading = (payload) => ({
-  type: "IS_LOADING",
+export const setLoading = (payload) => ({
+  type: "SET_LOADING",
   payload,
 });

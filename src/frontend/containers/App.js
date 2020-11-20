@@ -33,7 +33,7 @@ const App = ({ lyric, lyricsList, isLoading }) => {
 App.propTypes = {
   lyric: PropTypes.object,
   lyricsList: PropTypes.array.isRequired,
-  isLoading: PropTypes.func,
+  isLoading: PropTypes.bool,
 };
 
 export default connect(mapStateToProps, null)(App);

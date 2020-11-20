@@ -5,7 +5,7 @@ import classNames from "classnames";
 import { FaSearch } from "react-icons/fa";
 
 import { searchTrack } from "api/client";
-import { setLyrics, isLoading } from "actions";
+import { setLyrics, setLoading } from "actions";
 
 import "styles/components/searcher.styl";
 
@@ -15,17 +15,17 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   setLyrics: (lyricsList) => dispatch(setLyrics(lyricsList)),
-  isLoading: (boolean) => dispatch(isLoading(boolean)),
+  setLoading: (boolean) => dispatch(setLoading(boolean)),
 });
 
-const Searcher = ({ lyricsList, setLyrics, isLoading }) => {
+const Searcher = ({ lyricsList, setLyrics, setLoading }) => {
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("desc");
   const [infoText, setInfoText] = useState(false);
 
   const handleSearch = (event) => {
     event.preventDefault();
-    isLoading(true);
+    setLoading(true);
     setLyrics([]);
 
     searchTrack(search, sort)
@@ -37,10 +37,10 @@ const Searcher = ({ lyricsList, setLyrics, isLoading }) => {
           setInfoText(true);
         }
       })
-      .then(() => isLoading(false))
+      .then(() => setLoading(false))
       .catch((error) => {
         console.log(error);
-        isLoading(false);
+        setLoading(false);
       });
   };
 
@@ -107,7 +107,7 @@ const Searcher = ({ lyricsList, setLyrics, isLoading }) => {
 };
 
 Searcher.propTypes = {
-  isLoading: PropTypes.func,
+  setLoading: PropTypes.func,
   lyricsList: PropTypes.array.isRequired,
   setLyrics: PropTypes.func.isRequired,
 };

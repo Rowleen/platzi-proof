@@ -24,7 +24,7 @@ const reducer = (state, action) => {
         filterGenre: action.payload,
       };
 
-    case "IS_LOADING":
+    case "SET_LOADING":
       return {
         ...state,
         isLoading: action.payload,
