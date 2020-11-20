@@ -26,7 +26,7 @@ const Track = ({
         tabIndex="0"
         onKeyDown={(event) => handleOnPressEnter(event, id)}
         title={`Song: ${name}`}
-        aria-labeeledby="songName"
+        aria-labelledby="songName"
       >
         <FaMusic className="icon-lyric" />
         <h3 id="songName" className="track-title">

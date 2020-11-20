@@ -18,6 +18,8 @@ const Lyric = ({ lyric }) => {
     if (!Object.prototype.hasOwnProperty.call(lyric, "lyrics_body")) {
       setMessage("Wops! we haven't found a lyric for this song");
     }
+
+    document.getElementById("close-lyric").focus();
   }, [lyric]);
 
   const handleToggleOnClick = () => {
@@ -40,8 +42,12 @@ const Lyric = ({ lyric }) => {
     <article className={lyricWrapper}>
       <div className={lyricContainer}>
         <FaRegTimesCircle
+          id="close-lyric"
           className="close-lyric"
           onClick={() => handleToggleOnClick()}
+          aria-label="Close"
+          title="Close"
+          tabIndex="-1"
         />
         {!message.length ? (
           <div
@@ -50,7 +56,10 @@ const Lyric = ({ lyric }) => {
           />
         ) : (
           <div className="lyric-message">
-            {message} <span className="emoji">😅</span>
+            {message}{" "}
+            <span className="emoji" aria-label="I'm sorry">
+              😅
+            </span>
           </div>
         )}
       </div>
