@@ -5,7 +5,7 @@ import "styles/components/footer.styl";
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="footer-content">Developed with 💚 for Platzi</div>
+      <div className="footer-content">Developed with 💚</div>
     </footer>
   );
 };
