@@ -101,7 +101,7 @@ const renderApp = (request, response) => {
 
 require("./routes/routes")(app);
 
-app.get("*", renderApp);
+app.get("/", renderApp);
 
 app.listen(process.env.PORT || port, (error) => {
   if (error) {
