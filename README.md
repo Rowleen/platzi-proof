@@ -8,7 +8,7 @@
 	<img alt="git" src="https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white" />
 </p>
 
-# Songs IO [![Build Status](https://travis-ci.org/Rowleen/platzi-proof.svg?branch=main)](https://travis-ci.org/Rowleen/platzi-proof)
+# Songs IO [![Build Status](https://travis-ci.org/Rowleen/songs-io.svg?branch=main)](https://travis-ci.org/Rowleen/songs-io)
 
 Songs IO es una aplicación web pequeña para experimentar con el renderizado del lado de servidor con [Create React App](https://github.com/facebook/create-react-app) más [Express](https://expressjs.com/es/).
 
@@ -24,12 +24,12 @@ Se ha tenido en cuenta un breakpoint para dispositivos móviles con hasta un má
 
 ## Tabla de contenidos
 
-1. [Requisitos previos](https://github.com/Rowleen/platzi-proof#requisitos-previos).
-2. [Instalación](https://github.com/Rowleen/platzi-proof#instalaci%C3%B3n).
-3. [Scripts disponibles](https://github.com/Rowleen/platzi-proof#scripts-disponibles).
-4. [Tecnologías y librerías](https://github.com/Rowleen/platzi-proof#tecnolog%C3%ADas-y-librer%C3%ADas).
-5. [Git-Hook](https://github.com/Rowleen/platzi-proof#git-hooks).
-6. [Despliegue](https://github.com/Rowleen/platzi-proof#despliegue).
+1. [Requisitos previos](https://github.com/Rowleen/songs-io#requisitos-previos).
+2. [Instalación](https://github.com/Rowleen/songs-io#instalaci%C3%B3n).
+3. [Scripts disponibles](https://github.com/Rowleen/songs-io#scripts-disponibles).
+4. [Tecnologías y librerías](https://github.com/Rowleen/songs-io#tecnolog%C3%ADas-y-librer%C3%ADas).
+5. [Git-Hook](https://github.com/Rowleen/songs-io#git-hooks).
+6. [Despliegue](https://github.com/Rowleen/songs-io#despliegue).
 
 ## Requisitos previos
 
