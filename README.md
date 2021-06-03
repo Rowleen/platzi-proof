@@ -8,9 +8,13 @@
 	<img alt="git" src="https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white" />
 </p>
 
-# Prueba técnica para Platzi [![Build Status](https://travis-ci.org/Rowleen/platzi-proof.svg?branch=main)](https://travis-ci.org/Rowleen/platzi-proof)
+# Songs IO [![Build Status](https://travis-ci.org/Rowleen/platzi-proof.svg?branch=main)](https://travis-ci.org/Rowleen/platzi-proof)
 
-Proyecto basado y desarrollado con [Create React App](https://github.com/facebook/create-react-app) más [Express](https://expressjs.com/es/) para el renderizado del lado del servidor.
+Songs IO es una aplicación web pequeña para experimentar con el renderizado del lado de servidor con [Create React App](https://github.com/facebook/create-react-app) más [Express](https://expressjs.com/es/).
+
+La app muestra un número limitado de letras de canciones las cuales se pueden filtrar por género y por rating.
+
+Las letras de las canciones están limitadas por licencia.
 
 Url de producción: https://songs-io.herokuapp.com/
 
