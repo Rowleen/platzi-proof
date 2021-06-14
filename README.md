@@ -49,7 +49,7 @@ npm install
 ### Iniciar el proyecto en modo desarrollo
 
 ```bash
-npm run dev-start
+npm run start-dev
 ```
 
 Esto iniciará el proyecto con la configuración de las funciones que conectan con la _API_ y _Webpack_ en modo desarrollo.
